@@ -1,0 +1,9 @@
+# created by virtualenv automatically
+/.DS_Store
+/__pyache__/*
+/bin/*
+/lib/*
+/models/__pyache__/*
+/REST/__pyache__*
+/pyvenv.cfg
+*.pyc
