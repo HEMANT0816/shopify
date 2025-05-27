@@ -27,7 +27,7 @@ class Category_Routes:
 			db.session.add(new_category)
 			db.session.commit()
 			return jsonify({'message': "category added successfully."}), 200
-	def category(self, category_id, extended=False):
+	def category(self, category_id, extended=True):
 		if request.method == 'GET':
 			category = Category.query.get_or_404(category_id)
 			response = {}
@@ -53,7 +53,7 @@ class Category_Routes:
 
 			if extended:
 				response["subcategories"] = []
-				for subcategory in category.subcategories:
+				for subcategory in category.subcategory:
 					response["subcategories"].append({
 						'id': subcategory.id,
 						'uuid': subcategory.uuid,

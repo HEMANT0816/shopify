@@ -7,4 +7,7 @@ Hey, Welcome to Shopify.
 
 # Tasks
 
-1. Prevent adding same images.
+1. Prevent adding same images for same product id and same color id. ✅
+2. Login.
+3. Signup.
+4. Preventing adding images for the product if the product does not exists. ✅

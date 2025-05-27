@@ -8,6 +8,6 @@ class Review(db.Model):
 	stars = db.Column(db.Integer)
 	created = db.Column(db.String(255))
 
-	users = db.relationship('User', backref = db.backref('UserOfReview'))
+	users = db.relationship('User', backref = db.backref('UserOfReview'), viewonly=True)
 	def __repr__(self):
 		return '<Review %r>' % self.id
