@@ -7,3 +7,5 @@
 /REST/__pyache__*
 /pyvenv.cfg
 *.pyc
+./REST_Api_Generator.py
+./shopify-backend.code-workspacesh

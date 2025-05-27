@@ -89,7 +89,11 @@ def wishlists_App(wishlist_id):
 		from routes.wishlists_routes import Wishlist_Routes
 		return Wishlist_Routes().wishlist(wishlist_id, True if request.args.get('extended') else False)
 
-
+@app.route("/signup", methods = ['POST'])
+def signup_App():
+		from routes.emailbot import Email_Routes
+		return Email_Routes().WelcomeEmail("jinay.c.kothari@gmail.com","Jinay Kothari")
+		
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True, port=3000)
