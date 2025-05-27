@@ -92,7 +92,7 @@ def wishlists_App(wishlist_id):
 @app.route("/signup", methods = ['POST'])
 def signup_App():
 		from routes.emailbot import Email_Routes
-		return Email_Routes().WelcomeEmail("jinay.c.kothari@gmail.com","Jinay Kothari")
+		return Email_Routes().WelcomeEmail("labhansh.8oct@gmail.com","Labhash Aggarwal")
 		
 
 if __name__ == '__main__':
