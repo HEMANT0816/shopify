@@ -6,6 +6,6 @@ class Color(db.Model):
 	name = db.Column(db.String(255))
 	created = db.Column(db.String(255))
 	
-	images = db.relationship('Image', backref = db.backref('ImagesOfColor'))
+	images = db.relationship('Image', backref = db.backref('ImagesOfColor'), viewonly=True)
 	def __repr__(self):
 		return '<Color %r>' % self.id

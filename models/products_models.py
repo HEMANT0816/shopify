@@ -12,8 +12,8 @@ class Product(db.Model):
 	created = db.Column(db.String(255))
 	deleted = db.Column(db.Integer)
 
-	images = db.relationship('Image', backref = db.backref('ImagesOfProduct'))
-	wishlists = db.relationship('Wishlist', backref = db.backref('WishlistsOfProduct'))
-	categories = db.relationship('Category', backref = db.backref('CategoryOfProduct'))
+	images = db.relationship('Image', backref = db.backref('ImagesOfProduct'), viewonly=True)
+	wishlists = db.relationship('Wishlist', backref = db.backref('WishlistsOfProduct'), viewonly=True)
+	categories = db.relationship('Category', backref = db.backref('CategoryOfProduct'), viewonly=True)
 	def __repr__(self):
 		return '<Product %r>' % self.id

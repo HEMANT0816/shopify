@@ -13,7 +13,7 @@ class User(db.Model):
 	deleted = db.Column(db.Integer)
 	flag = db.Column(db.Integer)
 
-	reviews = db.relationship('Review', backref = db.backref('ReviewsOfUser'))
+	reviews = db.relationship('Review', backref = db.backref('ReviewsOfUser'), viewonly=True)
 	wishlists = db.relationship('Wishlist', backref = db.backref('WishlistsOfUser'))
 	def __repr__(self):
 		return '<User %r>' % self.id

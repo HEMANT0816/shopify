@@ -6,7 +6,7 @@ class Category(db.Model):
 	name = db.Column(db.String(255))
 	created = db.Column(db.String(255))
 
-	products = db.relationship('Product', backref = db.backref('ProductsOfCategory'))
-	subcategory = db.relationship('Subcategory', backref = db.backref('SubcategoryOfCategory'))
+	products = db.relationship('Product', backref = db.backref('ProductsOfCategory'), viewonly=True)
+	subcategory = db.relationship('Subcategory', backref = db.backref('SubcategoryOfCategory'), viewonly=True)
 	def __repr__(self):
 		return '<Category %r>' % self.id
