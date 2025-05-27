@@ -8,7 +8,7 @@ class Wishlist(db.Model):
 	flag = db.Column(db.Integer)
 	created = db.Column(db.String(255))
 
-	users = db.relationship('User', backref = db.backref('UserOfWishlist'))
-	products = db.relationship('Product', backref = db.backref('ProductOfWishlist'))
+	users = db.relationship('User', backref = db.backref('UserOfWishlist'), viewonly=True)
+	products = db.relationship('Product', backref = db.backref('ProductOfWishlist'), viewonly=True)
 	def __repr__(self):
 		return '<Wishlist %r>' % self.id

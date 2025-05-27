@@ -2,6 +2,18 @@ from flask import request, jsonify
 from models.images_models import Image
 from __main__ import app, db
 import uuid, datetime
+import cloudinary
+import cloudinary.uploader
+from cloudinary.utils import cloudinary_url
+
+# Configuration       
+cloudinary.config( 
+    cloud_name = "dartvbrgp", 
+    api_key = "967566316529773", 
+    api_secret = "DY3eXEbgKbHJpqygeMvHcY9zy_c", # Click 'View API Keys' above to copy your API secret
+    secure=True
+)
+
 class Image_Routes:
 	def images(self):
 		if request.method == 'GET':
@@ -22,29 +34,55 @@ class Image_Routes:
 			return jsonify(response)
 
 		if request.method == 'POST':
+			# Method 1: Uploading Single file using request.files
 			# file = request.files.get('file')
 			# f_filename = 'assets/product_images/'+file.filename
 			# file.save(f_filename)
+			
+			# Method 2: Uploading multiple files using request.files.getlist('files')
 			# JSON data is not used for uploding files, so we can ignore it here instead we are using form data
-			all_files = []
-			data = request.form.to_dict()
+			# all_files = []
+			# data = request.form.to_dict()
+			# files = request.files.getlist('files')
+			# for i in files:
+			# 	f_filename = 'assets/product_images/'+i.filename
+			# 	i.save(f_filename)
+
+			# 	new_image = Image	(
+			# 			uuid=uuid.uuid4().hex,
+			# 			path='assets/product_images/'+i.filename,
+			# 			product_id=data['product_id'],
+			# 			color_id=data['color_id'],
+			# 			created=datetime.datetime.now().strftime("%A, %d %B %Y %I:%M %p")
+			# 		)
+			# 	all_files.append(new_image)
+
+			# db.session.add_all(all_files)
+			# db.session.commit()
+
+			# Method 3: Uploading Multiple files using cloudinary
+
 			files = request.files.getlist('files')
+			data = request.form.to_dict()
+			all_files = []
+			count = 1
 			for i in files:
-				f_filename = 'assets/product_images/'+i.filename
-				i.save(f_filename)
-
-				new_image = Image	(
-						uuid=uuid.uuid4().hex,
-						path='assets/product_images/'+i.filename,
-						product_id=data['product_id'],
-						color_id=data['color_id'],
-						created=datetime.datetime.now().strftime("%A, %d %B %Y %I:%M %p")
-					)
+				# Uploading file to cloudinary
+				upload_result = cloudinary.uploader.upload(i)
+				
+				new_image = Image(
+					uuid=uuid.uuid4().hex,
+					path=upload_result["secure_url"],
+					product_id=data['product_id'],
+					color_id=data['color_id'],
+					created=datetime.datetime.now().strftime("%A, %d %B %Y %I:%M %p"),
+					imageorder=count,
+					deleted=0
+				)
 				all_files.append(new_image)
-
+				count = count + 1
 			db.session.add_all(all_files)
 			db.session.commit()
-
 			return jsonify({'message': "image added successfully."}), 200
 	def image(self, image_id, extended=False):
 		if request.method == 'GET':
@@ -110,3 +148,4 @@ class Image_Routes:
 				db.session.delete(image)
 				db.session.commit()
 				return jsonify({'message': "image deleted successfully."}), 200
+

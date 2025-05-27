@@ -7,7 +7,9 @@ class Image(db.Model):
 	product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
 	color_id = db.Column(db.Integer, db.ForeignKey('colors.id'))
 	created = db.Column(db.String(255))
-
+	imageorder = db.Column(db.Integer)
+	deleted = db.Column(db.Integer)
+	
 	products = db.relationship('Product', backref = db.backref('ProductOfImage'))
 	colors = db.relationship('Color', backref = db.backref('ColorOfImage'))
 	def __repr__(self):
