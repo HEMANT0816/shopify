@@ -23,7 +23,7 @@ class Email_Routes:
         msg['Subject'] = 'Shopify - E-Commerce Platform'
         msg['From'] = "jinay.c.kothari@gmail.com"
         msg['To'] = email
-        msg.attach(MIMEText(html_content,'html'))
+        msg.attach(MIMEText(content,'plain'))
         # msg.attach(MIMEText(str(time.strftime("%H:%M:%S")),'plain'))
         # print("server yet to start")
         server = smtplib.SMTP("smtp.gmail.com", 587)
