@@ -1,7 +1,8 @@
 from flask import request, jsonify
 from models.users_models import User
+from routes.emailbot import Email_Routes
 from __main__ import app, db
-import uuid, datetime, bcrypt
+import uuid, datetime, bcrypt, jwt, os
 class User_Routes:
 	def users(self):
 		if request.method == 'GET':
@@ -28,7 +29,7 @@ class User_Routes:
 
 		if request.method == 'POST':
 			users = User.query.filter_by(email=request.get_json()['email']).first()
-			if not users:
+			if users:
 				new_user = User	(
 					uuid=uuid.uuid4().hex,
 					firstname=request.get_json()['firstname'],
@@ -43,7 +44,13 @@ class User_Routes:
 				)
 				db.session.add(new_user)
 				db.session.commit()
-				return jsonify({'message': "user added successfully."}), 200
+				# Generate JWT Token or Encode user data
+				# token = jwt.encode({"uuid":new_user.uuid,'user_id': new_user.id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1)}, os.environ.get("JWT_TOKEN"), algorithm='HS256')
+				# print("JWT Token:", token)
+				# Decode JWT Token to verify
+				# print(jwt.decode(token,os.environ.get("JWT_TOKEN"), algorithms=["HS256"]))
+				Email_Routes().WelcomeEmail(new_user.email, new_user.firstname)
+				return jsonify({'message': "user added successfully.","email":new_user.email,"firstname":new_user.firstname,"lastname":new_user.lastname}), 200
 			else:
 				return jsonify({'message': "user already exists."}), 400
 	def user(self, user_id, extended=False):
