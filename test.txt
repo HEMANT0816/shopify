@@ -1,5 +1,0 @@
-hello
-this is test file created for GitHub... :)
-
-
-this will only visible on the shopify-backend branch... :)
