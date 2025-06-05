@@ -19,7 +19,7 @@ Hey, Welcome to Shopify.
 ## Commands
 1. Download [phpmyadmin](https://www.phpmyadmin.net/)
 2. Extract the Folder
-3. `cd Download/phpMyAdmin-5.2.1-all-languages
+3. `cd Download/phpMyAdmin-5.2.1-all-languages`
 4. `php -S localhost:8080`
 5. then import the .sql file from shopify-backend in the phpmyadmin interface.
 6. you can see all the desired content in your local machine.
