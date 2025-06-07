@@ -1,8 +1,7 @@
 import React from "react";
-import { FiHeart, FiChevronLeft, FiChevronRight, FiEye } from "react-icons/fi";
+import { FiHeart, FiChevronLeft, FiChevronRight, FiEye, FiTruck, FiHeadphones, FiCheckCircle } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 import { BsCamera, BsPhone, BsLaptop, BsSmartwatch, BsHeadphones, BsController } from "react-icons/bs";
-
 
 // Product data for Flash Sales
 const flashSales = [
@@ -58,7 +57,7 @@ const categories = [
   { name: "Gaming", icon: <BsController size={32} /> },
 ];
 
-// Best Selling Products data (from your screenshot)
+// Best Selling Products data
 const bestSelling = [
   {
     id: 1,
@@ -78,7 +77,7 @@ const bestSelling = [
     rating: 4.5,
     reviews: 65,
   },
-   {
+  {
     id: 3,
     name: "RGB liquid CPU Cooler",
     price: 160,
@@ -97,7 +96,6 @@ const bestSelling = [
     reviews: 65,
   },
 ];
-
 
 export default function Home() {
   return (
@@ -346,7 +344,6 @@ export default function Home() {
                 {Array(5).fill().map((_, i) => <FaStar key={i} color={i < Math.round(product.rating) ? "#f6b01e" : "#ddd"} size={14} />)}
                 <span style={{ color: "#222", fontWeight: 500 }}>({product.reviews})</span>
               </div>
-
               {product.id === 2 ? (
                 <button style={{
                   width: "100%", background: "#000", color: "#fff", border: "none", borderRadius: 6,
@@ -357,7 +354,6 @@ export default function Home() {
               ) : null}
             </div>
           ))}
-          
           {/* Arrows */}
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 12, marginLeft: 12 }}>
             <button style={{
@@ -430,7 +426,7 @@ export default function Home() {
       </section>
 
       {/* Best Selling Product */}
-        <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
+      <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>This Month</span>
@@ -441,8 +437,8 @@ export default function Home() {
           }}>
             View All
           </button>
-           </div>
-           <h2 style={{ fontSize: 32, fontWeight: 700, margin: "8px 0 32px 0" }}>Best Selling Products</h2>
+        </div>
+        <h2 style={{ fontSize: 32, fontWeight: 700, margin: "8px 0 32px 0" }}>Best Selling Products</h2>
         <div style={{ display: "flex", gap: 24, alignItems: "stretch" }}>
           {bestSelling.map(product => (
             <div key={product.id} style={{
@@ -460,8 +456,8 @@ export default function Home() {
               <div style={{ position: "absolute", top: 16, right: 16, display: "flex", flexDirection: "column", gap: 10 }}>
                 <span style={{ color: "#222", cursor: "pointer" }}><FiHeart /></span>
                 <span style={{ color: "#222", cursor: "pointer" }}><FiEye /></span>
-        </div>
-                {/* Product Image */}
+              </div>
+              {/* Product Image */}
               <img src={product.img} alt={product.name} style={{ width: "100%", height: 120, objectFit: "contain", marginBottom: 12 }} />
               {/* Product Name */}
               <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4, textAlign: "center" }}>{product.name}</div>
@@ -482,200 +478,339 @@ export default function Home() {
             </div>
           ))}
         </div>
-        </section>
-
+        {/* Centered View All Products Button */}
         <div style={{ textAlign: "center", margin: "24px 0" }}>
-            <button
-               style={{
-                   background: "#db4444",
-                   color: "#fff",
-                   border: "none",
-                   borderRadius: 6,
-                   padding: "14px 38px",
-                   fontWeight: 600,
-                   fontSize: 16,
-                   cursor: "pointer",
-                   }}
-                  >
-                    View All Products
-             </button>
-           </div>
+          <button
+            style={{
+              background: "#db4444",
+              color: "#fff",
+              border: "none",
+              borderRadius: 6,
+              padding: "14px 38px",
+              fontWeight: 600,
+              fontSize: 16,
+              cursor: "pointer",
+            }}
+          >
+            View All Products
+          </button>
+        </div>
+      </section>
+
+      {/* New Arrival Section */}
       <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>Featured</span>
+        <h2 style={{ fontSize: 32, fontWeight: 700, margin: "0 0 32px 0" }}>New Arrival</h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "2fr 1fr 1fr",
+            gridTemplateRows: "1fr 1fr",
+            gap: "24px",
+            minHeight: 420,
+          }}
+        >
+          {/* PlayStation 5 Large Card */}
+          <div
+            style={{
+              gridRow: "1 / span 2",
+              gridColumn: "1 / 2",
+              background: "#111",
+              color: "#fff",
+              borderRadius: 16,
+              position: "relative",
+              overflow: "hidden",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-end",
+              padding: "32px",
+              minHeight: 420,
+            }}
+          >
+            <img
+              src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans/36190796/6e2c1b3d0e0b2d8c3e9b4e6e1b4e3d1e6b3b1e6e.png"
+              alt="PlayStation 5"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                opacity: 0.7,
+                zIndex: 0,
+              }}
+            />
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>
+                PlayStation 5
+              </div>
+              <div style={{ fontSize: 15, marginBottom: 18 }}>
+                Black and White version of the PS5 coming out on sale.
+              </div>
+              <a
+                href="#"
+                style={{
+                  color: "#fff",
+                  textDecoration: "underline",
+                  fontWeight: 600,
+                  fontSize: 16,
+                }}
+              >
+                Shop Now
+              </a>
+            </div>
           </div>
+
+          {/* Women's Collections */}
+          <div
+            style={{
+              gridRow: "1 / 2",
+              gridColumn: "2 / 4",
+              background: "#111",
+              color: "#fff",
+              borderRadius: 16,
+              padding: "32px",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-end",
+              position: "relative",
+              minHeight: 200,
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+              alt="Women's Collections"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                opacity: 0.7,
+                zIndex: 0,
+              }}
+            />
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
+                Women's Collections
+              </div>
+              <div style={{ fontSize: 15, marginBottom: 18 }}>
+                Featured woman collections that give you another vibe.
+              </div>
+              <a
+                href="#"
+                style={{
+                  color: "#fff",
+                  textDecoration: "underline",
+                  fontWeight: 600,
+                  fontSize: 16,
+                }}
+              >
+                Shop Now
+              </a>
+            </div>
           </div>
-          </section>
-          <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
-            <h2 style={{ fontSize: 32, fontWeight: 700, margin: "0 0 32px 0" }}>New Arrival</h2>
-               <div style={{
-                    display: "grid",
-                    gridTemplateColumns: "2fr 1fr 1fr",
-                    gridTemplateRows: "1fr 1fr",
-                    gap: "24px",
-                    minHeight: 420
-                  }}>
-    {/* PlayStation 5 Large Card */}
-    <div style={{
-      gridRow: "1 / span 2",
-      gridColumn: "1 / 2",
-      background: "#111",
-      color: "#fff",
-      borderRadius: 16,
-      position: "relative",
-      overflow: "hidden",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "flex-end",
-      padding: "32px"
-    }}>
-      <img
-        src="https://www.sony.com/image/ps5-console.png" // Use your actual PS5 image URL
-        alt="PlayStation 5"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: 0.7,
-          zIndex: 0
-        }}
-      />
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>PlayStation 5</div>
-        <div style={{ fontSize: 15, marginBottom: 18 }}>
-          Black and White version of the PS5 coming out on sale.
-        </div>
-        <a href="#" style={{
-          color: "#fff",
-          textDecoration: "underline",
-          fontWeight: 600,
-          fontSize: 16
-        }}>Shop Now</a>
-      </div>
-    </div>
 
-    {/* Women's Collections */}
-    <div style={{
-      background: "#111",
-      color: "#fff",
-      borderRadius: 16,
-      padding: "32px",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "flex-end",
-      position: "relative",
-      minHeight: 200
-    }}>
-      <img
-        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
-        alt="Women's Collections"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: 0.7,
-          zIndex: 0
-        }}
-      />
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Women's Collections</div>
-        <div style={{ fontSize: 15, marginBottom: 18 }}>
-          Featured woman collections that give you another vibe.
-        </div>
-        <a href="#" style={{
-          color: "#fff",
-          textDecoration: "underline",
-          fontWeight: 600,
-          fontSize: 16
-        }}>Shop Now</a>
-      </div>
-    </div>
+          {/* Speakers */}
+          <div
+            style={{
+              gridRow: "2 / 3",
+              gridColumn: "2 / 3",
+              background: "#111",
+              color: "#fff",
+              borderRadius: 16,
+              padding: "32px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-end",
+              position: "relative",
+              minHeight: 200,
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src="https://images-na.ssl-images-amazon.com/images/I/61u48FEsQwL._AC_SL1500_.jpg"
+              alt="Speakers"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                opacity: 0.7,
+                zIndex: 0,
+              }}
+            />
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
+                Speakers
+              </div>
+              <div style={{ fontSize: 15, marginBottom: 18 }}>
+                Amazon wireless speakers
+              </div>
+              <a
+                href="#"
+                style={{
+                  color: "#fff",
+                  textDecoration: "underline",
+                  fontWeight: 600,
+                  fontSize: 16,
+                }}
+              >
+                Shop Now
+              </a>
+            </div>
+          </div>
 
-    {/* Speakers */}
-    <div style={{
-      background: "#111",
-      color: "#fff",
-      borderRadius: 16,
-      padding: "32px",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "flex-end",
-      position: "relative",
-      minHeight: 200
-    }}>
-      <img
-        src="https://images-na.ssl-images-amazon.com/images/I/61u48FEsQwL._AC_SL1500_.jpg"
-        alt="Speakers"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: 0.7,
-          zIndex: 0
-        }}
-      />
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Speakers</div>
-        <div style={{ fontSize: 15, marginBottom: 18 }}>
-          Amazon wireless speakers
+          {/* Perfume */}
+          <div
+            style={{
+              gridRow: "2 / 3",
+              gridColumn: "3 / 4",
+              background: "#111",
+              color: "#fff",
+              borderRadius: 16,
+              padding: "32px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-end",
+              position: "relative",
+              minHeight: 200,
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src="https://cdn.notinoimg.com/images/gallery/gucci/gucci-intense-oud-edp__1.jpg"
+              alt="Perfume"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                opacity: 0.7,
+                zIndex: 0,
+              }}
+            />
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
+                Perfume
+              </div>
+              <div style={{ fontSize: 15, marginBottom: 18 }}>
+                GUCCI INTENSE OUD EDP
+              </div>
+              <a
+                href="#"
+                style={{
+                  color: "#fff",
+                  textDecoration: "underline",
+                  fontWeight: 600,
+                  fontSize: 16,
+                }}
+              >
+                Shop Now
+              </a>
+            </div>
+          </div>
         </div>
-        <a href="#" style={{
-          color: "#fff",
-          textDecoration: "underline",
-          fontWeight: 600,
-          fontSize: 16
-        }}>Shop Now</a>
-      </div>
-    </div>
+      </section>
 
-    {/* Perfume */}
-    <div style={{
-      background: "#111",
-      color: "#fff",
-      borderRadius: 16,
-      padding: "32px",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "flex-end",
-      position: "relative",
-      minHeight: 200
-    }}>
-      <img
-        src="https://cdn.notinoimg.com/images/gallery/gucci/gucci-intense-oud-edp__1.jpg"
-        alt="Perfume"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: 0.7,
-          zIndex: 0
-        }}
-      />
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Perfume</div>
-        <div style={{ fontSize: 15, marginBottom: 18 }}>
-          GUCCI INTENSE OUD EDP
-        </div>
-        <a href="#" style={{
-          color: "#fff",
-          textDecoration: "underline",
-          fontWeight: 600,
-          fontSize: 16
-        }}>Shop Now</a>
+      {/* Service Features Section */}
+<section style={{
+  maxWidth: 1200,
+  margin: "56px auto 0",
+  padding: "0 16px 32px 16px"
+}}>
+  <div style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: 80,
+    flexWrap: "wrap"
+  }}>
+    {/* Free and Fast Delivery */}
+    <div style={{ textAlign: "center", minWidth: 220 }}>
+      <div style={{
+        margin: "0 auto 18px",
+        width: 64,
+        height: 64,
+        borderRadius: "50%",
+        background: "#a9a9a9",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }}>
+        <span style={{
+          background: "#000000",
+          borderRadius: "50%",
+          width: 48,
+          height: 48,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}>
+          <FiTruck size={28} color="#fff" />
+        </span>
       </div>
+      <div style={{ fontWeight: 700, fontSize: 18, marginBottom: 4 }}>FREE AND FAST DELIVERY</div>
+      <div style={{ color: "#444", fontSize: 15 }}>Free delivery for all orders over $140</div>
+    </div>
+    {/* 24/7 Customer Service */}
+    <div style={{ textAlign: "center", minWidth: 220 }}>
+      <div style={{
+        margin: "0 auto 18px",
+        width: 64,
+        height: 64,
+        borderRadius: "50%",
+        background: "#a9a9a9",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }}>
+        <span style={{
+          background: "#000000",
+          borderRadius: "50%",
+          width: 48,
+          height: 48,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}>
+          <FiHeadphones size={28} color="#fff" />
+        </span>
+      </div>
+      <div style={{ fontWeight: 700, fontSize: 18, marginBottom: 4 }}>24/7 CUSTOMER SERVICE</div>
+      <div style={{ color: "#444", fontSize: 15 }}>Friendly 24/7 customer support</div>
+    </div>
+    {/* Money Back Guarantee */}
+    <div style={{ textAlign: "center", minWidth: 220 }}>
+      <div style={{
+        margin: "0 auto 18px",
+        width: 64,
+        height: 64,
+        borderRadius: "50%",
+        background: "#a9a9a9",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }}>
+        <span style={{
+          background: "#000000",
+          borderRadius: "50%",
+          width: 48,
+          height: 48,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}>
+          <FiCheckCircle size={28} color="#fff" />
+        </span>
+      </div>
+      <div style={{ fontWeight: 700, fontSize: 18, marginBottom: 4 }}>MONEY BACK GUARANTEE</div>
+      <div style={{ color: "#444", fontSize: 15 }}>We return money within 30 days</div>
     </div>
   </div>
 </section>
