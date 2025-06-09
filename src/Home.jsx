@@ -5,16 +5,7 @@ import { BsCamera, BsPhone, BsLaptop, BsSmartwatch, BsHeadphones, BsController }
 
 // Product data for Flash Sales
 const flashSales = [
-  {
-    id: 1,
-    name: "HAVIT HV-G92 Gamepad",
-    discount: 40,
-    price: 120,
-    oldPrice: 160,
-    img: "/images/Frame 611.png",
-    rating: 4.5,
-    reviews: 88,
-  },
+  {id: 1, name: "HAVIT HV-G92 Gamepad", discount: 40, price: 120, oldPrice: 160, img: "/images/Frame 611.png", rating: 4.5, reviews: 88 },
   {
     id: 2,
     name: "AK-900 Wired Keyboard",
@@ -64,7 +55,7 @@ const bestSelling = [
     name: "The north coat",
     price: 260,
     oldPrice: 360,
-    img: "https://cdn.shopify.com/s/files/1/0257/6087/9356/products/north-coat.png?v=1614329123",
+    img: "/images/Frame 605.svg",
     rating: 4.5,
     reviews: 65,
   },
@@ -73,7 +64,7 @@ const bestSelling = [
     name: "Gucci duffle bag",
     price: 960,
     oldPrice: 1160,
-    img: "https://cdn.shopify.com/s/files/1/0257/6087/9356/products/gucci-bag.png?v=1614329123",
+    img: "/images/duffle-bag.svg",
     rating: 4.5,
     reviews: 65,
   },
@@ -82,7 +73,7 @@ const bestSelling = [
     name: "RGB liquid CPU Cooler",
     price: 160,
     oldPrice: 170,
-    img: "https://cdn.shopify.com/s/files/1/0257/6087/9356/products/cpu-cooler.png?v=1614329123",
+    img: "/images/speaker.svg",
     rating: 4.5,
     reviews: 65,
   },
@@ -91,21 +82,82 @@ const bestSelling = [
     name: "Small BookSelf",
     price: 360,
     oldPrice: null,
-    img: "https://cdn.shopify.com/s/files/1/0257/6087/9356/products/bookshelf.png?v=1614329123",
+    img: "/images/Bookshelf.svg",
     rating: 4.5,
     reviews: 65,
   },
 ];
 
+//Our Products Data
+const ourProducts = [
+  { id: 1, name: "Breed Dry Dog Food", price: 100, img: "/images/Cesar.svg",rating: 3,reviews: 35  },
+  { id: 2, name: "CANON EOS DSLR Camera",price: 360,img: "/images/Camera.svg",rating: 4,reviews: 95 },
+  {
+    id: 3,
+    name: "IPS LCD Gaming Monitor",
+    discount: 30,
+    price: 370,
+    oldPrice: 400,
+    img: "/images/monitor.png",
+    rating: 4.7,
+    reviews: 98,
+  },
+  {
+    id: 4,
+    name: "S-Series Comfort Chair",
+    discount: 25,
+    price: 375,
+    oldPrice: 400,
+    img: "/images/chair.png",
+    rating: 4.6,
+    reviews: 99,
+  },
+  {
+    id: 5,
+    name: "Wireless Headphones",
+    discount: 22,
+    price: 150,
+    oldPrice: 200,
+    img: "/images/headphones.png",
+    rating: 4.3,
+    reviews: 60,
+  },
+  {
+    id: 6,
+    name: "Smart Watch",
+    discount: 18,
+    price: 199,
+    oldPrice: 250,
+    img: "/images/smartwatch.png",
+    rating: 4.8,
+    reviews: 120,
+  },
+  {
+    id: 7,
+    name: "Bluetooth Speaker",
+    discount: 20,
+    price: 99,
+    oldPrice: 120,
+    img: "/images/speaker.png",
+    rating: 4.4,
+    reviews: 77,
+  },
+  {
+    id: 8,
+    name: "Gaming Mouse",
+    discount: 15,
+    price: 75,
+    oldPrice: 90,
+    img: "/images/mouse.png",
+    rating: 4.7,
+    reviews: 54,
+  },
+];
+
 export default function Home() {
   return (
-    <div style={{
-      margin: 0,
-      fontFamily: "'Poppins', sans-serif",
-      background: "#fff",
-      color: "#1a1a1a",
-      minHeight: "100vh"
-    }}>
+    <div style={{margin: 0, fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a1a", minHeight: "100vh"}}>
+
       {/* Top Announcement Bar */}
       <div style={{
         background: "#000",
@@ -124,29 +176,13 @@ export default function Home() {
             ShopNow
           </a>
         </div>
-        <div style={{
-          position: "absolute",
-          right: "40px",
-          top: 0,
-          bottom: 0,
-          display: "flex",
-          alignItems: "center",
-          fontSize: "15px",
-          cursor: "pointer"
-        }}>
+        <div style={{ position: "absolute", right: "40px", top: 0, bottom: 0, display: "flex", alignItems: "center", fontSize: "15px", cursor: "pointer" }}>
           English <span style={{ fontSize: "10px", marginLeft: "4px" }}>▼</span>
         </div>
       </div>
 
       {/* Navbar */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "0 40px",
-        height: "70px",
-        borderBottom: "1px solid #eee",
-        background: "#fff"
-      }}>
+      <div style={{ display: "flex", alignItems: "center", padding: "0 40px", height: "70px", borderBottom: "1px solid #eee", background: "#fff" }}>
         <div style={{ fontSize: "26px", fontWeight: 700, marginRight: "150px" }}>Exclusive</div>
         <nav style={{ display: "flex", gap: "40px", fontSize: "17px", fontWeight: 500 }}>
           <a href="#" style={{ color: "#1a1a1a", textDecoration: "none", position: "relative", padding: "4px 0", borderBottom: "2px solid #1a1a1a" }}>
@@ -164,35 +200,14 @@ export default function Home() {
         </nav>
 
         <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
-        <div style={{
-               position: "relative",
-               width: "320px",
-               display: "flex",
-               alignItems: "center"
-               }}>
+        <div style={{ position: "relative", width: "320px", display: "flex", alignItems: "center" }}>
           <input
             type="text"
             placeholder="What are you looking for?"
-            style={{
-              width: "320px",
-              padding: "8px 40px 8px 16px",
-              border: "1px solid #ddd",
-              borderRadius: "8px",
-              fontSize: "15px",
-              outline: "none"
-            }}
-          />
+            style={{ width: "320px", padding: "8px 40px 8px 16px", border: "1px solid #ddd", borderRadius: "8px", fontSize: "15px", outline: "none"}} />
           <FiSearch
              size={20}
-             style={{
-             position: "absolute",
-             right: 14,
-             top: "50%",
-             transform: "translateY(-50%)",
-             color: "#888",
-             pointerEvents: "none"
-             }}
-            />
+             style={{ position: "absolute", right: 14, top: "50%", transform: "translateY(-50%)", color: "#888", pointerEvents: "none" }}  />
         </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "22px", marginLeft: "30px" }}>
@@ -203,31 +218,14 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div style={{
-        display: "flex",
-        maxWidth: "1200px",
-        margin: "32px auto 0",
-        gap: "32px"
-      }}>
+      <div style={{ display: "flex", maxWidth: "1200px", margin: "32px auto 0", gap: "32px"}}>
         {/* Sidebar */}
-        <aside style={{
-          width: "210px",
-          borderRight: "1px solid #eee",
-          paddingTop: "18px"
-        }}>
+        <aside style={{ width: "210px", borderRight: "1px solid #eee", paddingTop: "18px" }}>
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {["Woman's Fashion", "Men's Fashion", "Electronics", "Home & Lifestyle", "Medicine", "Sports & Outdoor", "Baby's & Toys", "Groceries & Pets", "Health & Beauty"].map((item, idx) => (
               <li
                 key={idx}
-                style={{
-                  fontSize: "16px",
-                  padding: "13px 0 13px 18px",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  transition: "background 0.2s"
-                }}
+                style={{ fontSize: "16px",padding: "13px 0 13px 18px",cursor: "pointer",display: "flex",alignItems: "center",justifyContent: "space-between",transition: "background 0.2s" }}
                 onMouseEnter={(e) => e.currentTarget.style.background = "#f4f7ff"}
                 onMouseLeave={(e) => e.currentTarget.style.background = ""}
               >
@@ -240,54 +238,25 @@ export default function Home() {
           </ul>
         </aside>
 
-        {/* Banner Section */}
-              <section style={{
-                  flex: 1,
-                  padding: "0 0 0 32px",
-                  display: "flex",
-                  alignItems: "center",
-                  minWidth: 0
-                  }}>
-                 <div style={{
-                      background: "#111",
-                      borderRadius: "18px",
-                      overflow: "hidden",
-                      display: "flex",
-                      alignItems: "center",
-                      width: "100%",
-                      minHeight: "320px",
-                      position: "relative",
-                      justifyContent: "center"
-                     }}>
-                     <img
-                       src="/images/Frame 560.svg"
-                       alt="Banner"
-                         style={{
-                           width: "100%",
-                           height: "100%",
-                           objectFit: "cover",
-                           display: "block",
-                           borderRadius: "18px"
-                           }}
-                         />
-                        </div>
-                    </section>
-                        </div>
+  {/* Banner Section */}
+  <section style={{ flex: 1, padding: "0 0 0 32px", display: "flex", alignItems: "center", minWidth: 0 }}>
+    <div style={{ background: "#111", borderRadius: "18px", overflow: "hidden", display: "flex", alignItems: "center", width: "100%", minHeight: "320px", position: "relative", justifyContent: "center"}}>
+                <img
+                  src="/images/Frame 560.svg"
+                  alt="Banner"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", borderRadius: "18px" }} />
+                </div>
+              </section>
+              </div>
 
-
-      {/* Flash Sales Section */}
+{/* Flash Sales Section */}
       <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-          <div style={{
-               width: 20,
-               height: 30,
-               background: "#db4444",
-               borderRadius: 2
-              }} />
+          <div style={{ width: 20, height: 30, background: "#db4444", borderRadius: 2 }} />
           <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>Today's</span>
         </div>
         
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 32, margin: 32 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "8px 0 32px 0" }}>
         <h2 style={{ fontSize: 36, fontWeight: 700, margin: " 0", letterSpacing: "-1px" }}>Flash Sales</h2>
         {/* Timer */}
         <div style={{ display: "flex", gap: 28, marginLeft: 18 }}>
@@ -298,141 +267,88 @@ export default function Home() {
             </div>
           ))}
         </div>
-        </div>
-        {/* Product Cards */}
-        <div style={{ display: "flex", gap: 24, alignItems: "stretch", margin: 32 }}>
+          {/* Arrows */}
+          <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "space-between" , gap: 8, marginLeft: 12 }}>
+            <button style={{
+              background: "#f5f5f5", border: "1px solid #eee", borderRadius: "50%", width: 46, height: 36,
+              display: "flex", justifyContent: "center", cursor: "pointer"
+            }}>
+              <img src="/images/left-arrow.png" alt="Left" style={{ width: 24, height: 24 }} />
+            </button>
+            <button style={{
+              background: "#f5f5f5", border: "1px solid #eee", borderRadius: "50%", width: 46, height: 36,
+              display: "flex", justifyContent: "center", cursor: "pointer"
+            }}>
+              <img src="/images/right-arrow.png" alt="Right" style={{ width: 24, height: 24 }} />
+            </button>
+          </div>
+            </div>
+
+         {/* Product Cards */}
+        <div style={{ display: "flex", gap: 24, alignItems: "stretch" }}>
           {flashSales.map(product => (
-            <div key={product.id} style={{
-              background: "#fff",
-              borderRadius: 10,
-              boxShadow: "0 2px 8px rgba(0,0,0,0.02)",
-              padding: 16,
-              width: 270,
-              height: 350,
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              boxSizing: "border-box",
-              marginLeft: "auto",
-              marginRight: "auto"
-             }}>
-              {/*Discount Label */}
-              <span style={{
-                position: "absolute", top: 16, left: 16, background: "#db4444", color: "#fff",
-                borderRadius: 4, fontSize: 13, fontWeight: 600, padding: "2px 8px", zIndex: 10
-              }}>
+            <div key={product.id} style={{ background: "#fff", borderRadius: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.02)", padding: 16, width: 280,
+              height: 400, position: "relative", display: "flex", flexDirection: "column", alignItems: "center", boxSizing: "border-box"}}>
+          {/* Product Image */}
+           <div style={{ background: "#f5f5f5", borderRadius: 10, width: 280, height: 190, display: "flex", alignItems: "center", justifyContent: "center",
+                   marginBottom: 16, marginTop: 32, position: "relative", overflow: "hidden" }}>
+          {/*Discount Label */}
+            <span style={{
+                position: "absolute", top: 18, left: 18, background: "#db4444", color: "#fff",
+                borderRadius: 4, fontSize: 14, fontWeight: 700, padding: "4px 12px", zIndex: 10 }}>
                 -{product.discount}%
               </span>
               {/* Wishlist Icon */}
-              <span style={{
-                position: "absolute", top: 16, right: 16, color: "#222", cursor: "pointer", zIndex: 10
-              }}>
+              <span style={{ position: "absolute", top: 10, right: 10, color: "#222", cursor: "pointer", zIndex: 10 }}>
                 <FiHeart />
               </span>
               {/* Eye Icon  */}
-               <span style={{
-                 position: "absolute",
-                 top: 44,
-                 right: 16,
-                 color: "#222",
-                 cursor: "pointer",
-                 zIndex: 10
-                 }}>
+               <span style={{position: "absolute", top: 40, right: 10, color: "#222", cursor: "pointer", zIndex: 10 }}>
                 <FiEye />
                </span>
-              {/* Product Image */}
-              <div style={{
-                   background: "#f5f5f5",
-                   borderRadius: 10,
-                   boxShadow: "0 2px 8px rgba(0,0,0,0.02)",
-                   padding: 16,
-                   width: 220,
-                   position: "relative",
-                   zIndex: 0
-                   }}>
-
-              <img src={product.img} alt={product.name} style={{ width: "270px", height: 150, objectFit: "contain", marginBottom: 12 }} />
+                  <img src={product.img} alt={product.name} style={{ width: "90%", height: "90%", objectFit: "contain", display: "block" }} />
+              </div>
               <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>{product.name}</div>
-              
-               {/* Rating Section */}
+              {/* Rating Section */}
               <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 14, color: "#f6b01e", marginBottom: 8 }}>
                 {Array(5).fill().map((_, i) => <FaStar key={i} color={i < Math.round(product.rating) ? "#f6b01e" : "#ddd"} size={14} />)}
                 <span style={{ color: "#222", fontWeight: 500 }}>({product.reviews})</span>
               </div>
               {/* Price Section */}
-  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-    <span style={{ color: "#db4444", fontWeight: 700 }}>${product.price}</span>
-    <span style={{ textDecoration: "line-through", color: "#888", fontSize: 14 }}>${product.oldPrice}</span>
-  </div>
-</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+              <span style={{ color: "#db4444", fontWeight: 700 }}>${product.price}</span>
+              <span style={{ textDecoration: "line-through", color: "#888", fontSize: 14 }}>${product.oldPrice}</span>
+              </div>
               {product.id === 2 ? (
-                <button style={{
-                  width: "100%", background: "#000", color: "#fff", border: "none", borderRadius: 6,
-                  padding: "8px 0", fontWeight: 600, marginTop: 8, cursor: "pointer"
-                }}>
+                <button style={{ width: "100%", background: "#000", color: "#fff", border: "none", borderRadius: 6,
+                  padding: "8px 0", fontWeight: 600, marginTop: 8, cursor: "pointer" }}>
                   Add To Cart
                 </button>
               ) : null}
             </div>
           ))}
-          {/* Arrows */}
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 12, marginLeft: 12 }}>
-            <button style={{
-              background: "#fff", border: "1px solid #eee", borderRadius: "50%", width: 32, height: 32,
-              display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer"
-            }}>
-              <FiChevronLeft />
-            </button>
-            <button style={{
-              background: "inherit", border: "1px solid #eee", borderRadius: "50%", width: 32, height: 32,
-              display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer"
-            }}>
-              <FiChevronRight />
-            </button>
           </div>
-        </div>
+          </section>
         {/* View All Products Button */}
         <div style={{ textAlign: "center", margin: "24px 0" }}>
-          <button style={{
-            background: "#db4444", color: "#fff", border: "none", borderRadius: 6,
-            padding: "14px 38px", fontWeight: 600, fontSize: 16, cursor: "pointer"
-          }}>
+          <button style={{ background: "#db4444", color: "#fff", border: "none", borderRadius: 6, padding: "14px 38px", fontWeight: 600, fontSize: 16, cursor: "pointer" }}>
             View All Products
           </button>
         </div>
-      </section>
 
       {/* Categories Section */}
       <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{
-               width: 20,
-               height: 30,
-               background: "#db4444",
-               borderRadius: 2
-              }} />
+          <div style={{ width: 20, height: 30, background: "#db4444", borderRadius: 2 }} />
         <div style={{ color: "#db4444", fontWeight: 600, fontSize: 16, marginBottom: 8 }}>Categories</div>
         </div>
         <h2 style={{ fontSize: 28, fontWeight: 700, margin: "8px 0 32px 0" }}>Browse By Category</h2>
         <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
           {categories.map(cat => (
-            <div key={cat.name} style={{
-              flex: "1 1 120px", minWidth: 120, maxWidth: 160,
-              background: cat.active ? "#db4444" : "#fff",
-              color: cat.active ? "#fff" : "#222",
-              border: `2px solid ${cat.active ? "#db4444" : "#eee"}`,
-              borderRadius: 10,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "32px 0 20px 0",
-              fontWeight: 600,
-              fontSize: 16,
-              transition: "all 0.2s",
-              cursor: "pointer"
-            }}>
+            <div key={cat.name} style={{ flex: "1 1 120px", minWidth: 120, maxWidth: 160, background: cat.active ? "#db4444" : "#fff",
+              color: cat.active ? "#fff" : "#222", border: `2px solid ${cat.active ? "#db4444" : "#eee"}`, borderRadius: 10, display: "flex",
+              flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px 0 20px 0", fontWeight: 600,
+              fontSize: 16, transition: "all 0.2s", cursor: "pointer" }}>
               <div style={{ marginBottom: 12 }}>{cat.icon}</div>
               {cat.name}
             </div>
@@ -441,14 +357,12 @@ export default function Home() {
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 12, marginLeft: 12 }}>
             <button style={{
               background: "#fff", border: "1px solid #eee", borderRadius: "50%", width: 32, height: 32,
-              display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer"
-            }}>
+              display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
               <FiChevronLeft />
             </button>
             <button style={{
               background: "#fff", border: "1px solid #eee", borderRadius: "50%", width: 32, height: 32,
-              display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer"
-            }}>
+              display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
               <FiChevronRight />
             </button>
           </div>
@@ -458,42 +372,28 @@ export default function Home() {
       {/* Best Selling Product */}
       <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{
-               width: 20,
-               height: 30,
-               background: "#db4444",
-               borderRadius: 2
-              }} />
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+          <div style={{ width: 20, height: 30, background: "#db4444", borderRadius: 2 }} />
             <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>This Month</span></div>
-          <button style={{
-            background: "#db4444", color: "#fff", border: "none", borderRadius: 6,
-            padding: "8px 28px", fontWeight: 600, fontSize: 16, cursor: "pointer"
-          }}>
+          <button style={{ background: "#db4444", color: "#fff", border: "none", borderRadius: 6,
+            padding: "8px 28px", fontWeight: 600, fontSize: 16, cursor: "pointer" }}>
             View All
           </button>
         </div>
-        <h2 style={{ fontSize: 32, fontWeight: 700, margin: "8px 0 32px 0" }}>Best Selling Products</h2>
+        <div style={{display: "flex", alignItems: "center", justifyContent: "space-between", margin: "8px 0 32px 0"}}>
+        <h2 style={{ fontSize: 32, fontWeight: 700, margin: 0 }}>Best Selling Products</h2>
+          </div>
         <div style={{ display: "flex", gap: 24, alignItems: "stretch" }}>
           {bestSelling.map(product => (
-            <div key={product.id} style={{
-              background: "#fff",
-              borderRadius: 10,
-              boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
-              padding: 20,
-              width: 220,
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center"
-            }}>
+            <div key={product.id} style={{ background: "#f5f5f5", borderRadius: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.03)", padding: 20,
+              width: 220, position: "relative", display: "flex", flexDirection: "column", alignItems: "center"}}>
               {/* Wishlist & View Icons */}
               <div style={{ position: "absolute", top: 16, right: 16, display: "flex", flexDirection: "column", gap: 10 }}>
                 <span style={{ color: "#222", cursor: "pointer" }}><FiHeart /></span>
                 <span style={{ color: "#222", cursor: "pointer" }}><FiEye /></span>
               </div>
               {/* Product Image */}
-              <img src={"/images/Frame 605.svg"} alt={product.name} style={{ width: "100%", height: 120, objectFit: "contain", marginBottom: 12 }} />
+              <img src={product.img} alt={product.name} style={{ width: "100%", height: 120, objectFit: "contain", marginBottom: 12 }} />
               {/* Product Name */}
               <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4, textAlign: "center" }}>{product.name}</div>
               {/* Price */}
@@ -514,104 +414,82 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <img
+       src="/images/Frame 600.png" 
+       alt="Custom Banner"
+  style={{ width: 1170, height: 500, display: "block", margin: "40px auto", objectFit: "cover" }} />
       
       {/* Our Products */}
       <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}></div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{
-               width: 20,
-               height: 30,
-               background: "#db4444",
-               borderRadius: 2
-              }} />
-          <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>Our Products</span></div>
-
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "24px 0 24px 0" }}>
-        <h2 style={{ fontSize: 36, fontWeight: 600, margin: " 0" }}>Explore Our Products</h2>
-        <div style={{ display: "flex", gap: 12 }}>
-    <button style={{
-      background: "#fff",
-      border: "1px solid #eee",
-      borderRadius: "50%",
-      width: 32,
-      height: 32,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      cursor: "pointer"
-    }}>
-      <FiChevronLeft />
-    </button>
-    <button style={{
-      background: "#fff",
-      border: "1px solid #eee",
-      borderRadius: "50%",
-      width: 32,
-      height: 32,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      cursor: "pointer"
-    }}>
-      <FiChevronRight />
-    </button>
-    </div>
-  </div>
-        <div style={{ display: "flex", gap: 24, alignItems: "stretch", marginBottom: 32 }}>
-          {bestSelling.slice(0,4).map(product => (
-            <div key={product.id} style={{
-              background: "#fff",
-              borderRadius: 10,
-              boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
-              padding: 20,
-              width: 220,
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center"
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+          <div style={{ width: 20, height: 30, background: "#db4444", borderRadius: 2 }} />
+          <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>Our Products</span>
+        </div>
+        
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "8px 0 32px 0" }}>
+        <h2 style={{ fontSize: 36, fontWeight: 700, margin: " 0", letterSpacing: "-1px" }}>Explore Our Products</h2>
+          {/* Arrows */}
+          <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "space-between" , gap: 8, marginLeft: 12 }}>
+            <button style={{
+              background: "#f5f5f5", border: "1px solid #eee", borderRadius: "50%", width: 46, height: 36,
+              display: "flex", justifyContent: "center", cursor: "pointer"
             }}>
-              {/* Wishlist & View Icons */}
-              <div style={{ position: "absolute", top: 16, right: 16, display: "flex", flexDirection: "column", gap: 10 }}>
-                <span style={{ color: "#222", cursor: "pointer" }}><FiHeart /></span>
-                <span style={{ color: "#222", cursor: "pointer" }}><FiEye /></span>
+              <img src="/images/left-arrow.png" alt="Left" style={{ width: 24, height: 24 }} />
+            </button>
+            <button style={{
+              background: "#f5f5f5", border: "1px solid #eee", borderRadius: "50%", width: 46, height: 36,
+              display: "flex", justifyContent: "center", cursor: "pointer"
+            }}>
+              <img src="/images/right-arrow.png" alt="Right" style={{ width: 24, height: 24 }} />
+            </button>
+          </div>
+            </div>
+
+         {/* Product Cards */}
+        <div style={{ display: "flex", gap: 24, alignItems: "stretch", flexWrap: "wrap" }}>
+          {ourProducts.map(product => (
+            <div key={product.id} style={{ background: "#fff", borderRadius: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.02)", padding: 16, width: 280,
+              height: 400, position: "relative", display: "flex", flexDirection: "column", alignItems: "center", boxSizing: "border-box"}}>
+          {/* Product Image */}
+           <div style={{ background: "#f5f5f5", borderRadius: 10, width: 280, height: 190, display: "flex", alignItems: "center", justifyContent: "center",
+                   marginBottom: 16, marginTop: 32, position: "relative", overflow: "hidden" }}>
+              {/* Wishlist Icon */}
+              <span style={{ position: "absolute", top: 10, right: 10, color: "#222", cursor: "pointer", zIndex: 10 }}>
+                <FiHeart />
+              </span>
+              {/* Eye Icon  */}
+               <span style={{position: "absolute", top: 40, right: 10, color: "#222", cursor: "pointer", zIndex: 10 }}>
+                <FiEye />
+               </span>
+                  <img src={product.img} alt={product.name} style={{ width: "90%", height: "90%", objectFit: "contain", display: "block" }} />
               </div>
-              {/* Product Image */}
-              <img src={"/images/Cesar.svg"} alt={product.name} style={{ width: "100%", height: 120, objectFit: "contain", marginBottom: 12 }} />
-              {/* Product Name */}
-              <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4, textAlign: "center" }}>{product.name}</div>
-              {/* Price */}
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-                <span style={{ color: "#db4444", fontWeight: 700 }}>${product.price}</span>
-                {product.oldPrice && (
-                  <span style={{ textDecoration: "line-through", color: "#888", fontSize: 14 }}>${product.oldPrice}</span>
-                )}
-              </div>
-              {/* Rating */}
+              <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>{product.name}</div>
+              {/* Rating Section */}
               <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 14, color: "#f6b01e", marginBottom: 8 }}>
-                {Array(5).fill().map((_, i) => (
-                  <FaStar key={i} color={i < Math.round(product.rating) ? "#f6b01e" : "#ddd"} size={14} />
-                ))}
+                {Array(5).fill().map((_, i) => <FaStar key={i} color={i < Math.round(product.rating) ? "#f6b01e" : "#ddd"} size={14} />)}
                 <span style={{ color: "#222", fontWeight: 500 }}>({product.reviews})</span>
               </div>
+              {/* Price Section */}
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+              <span style={{ color: "#db4444", fontWeight: 700 }}>${product.price}</span>
+              </div>
+              {product.id === 2 ? (
+                <button style={{ width: "100%", background: "#000", color: "#fff", border: "none", borderRadius: 6,
+                  padding: "8px 0", fontWeight: 600, marginTop: 8, cursor: "pointer" }}>
+                  Add To Cart
+                </button>
+              ) : null}
             </div>
           ))}
-         </div>
-       </section>
-
+          </div>
+          </section>
 
       {/* New Arrival Section */}
       <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
         <h2 style={{ fontSize: 32, fontWeight: 700, margin: "0 0 32px 0" }}>New Arrival</h2>
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr",
-            gridTemplateRows: "1fr 1fr",
-            gap: "24px",
-            minHeight: 420,
-          }}
-        >
+          style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "24px", minHeight: 420 }} >
           {/* PlayStation 5 Large Card */}
           <div
             style={{
@@ -632,17 +510,7 @@ export default function Home() {
             <img
               src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans/36190796/6e2c1b3d0e0b2d8c3e9b4e6e1b4e3d1e6b3b1e6e.png"
               alt="PlayStation 5"
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                opacity: 0.7,
-                zIndex: 0,
-              }}
-            />
+              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.7, zIndex: 0 }} />
             <div style={{ position: "relative", zIndex: 1 }}>
               <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>
                 PlayStation 5
@@ -652,13 +520,7 @@ export default function Home() {
               </div>
               <a
                 href="#"
-                style={{
-                  color: "#fff",
-                  textDecoration: "underline",
-                  fontWeight: 600,
-                  fontSize: 16,
-                }}
-              >
+                style={{ color: "#fff", textDecoration: "underline", fontWeight: 600, fontSize: 16 }} >
                 Shop Now
               </a>
             </div>
@@ -704,13 +566,7 @@ export default function Home() {
               </div>
               <a
                 href="#"
-                style={{
-                  color: "#fff",
-                  textDecoration: "underline",
-                  fontWeight: 600,
-                  fontSize: 16,
-                }}
-              >
+                style={{ color: "#fff", textDecoration: "underline", fontWeight: 600, fontSize: 16 }} >
                 Shop Now
               </a>
             </div>
@@ -756,13 +612,7 @@ export default function Home() {
               </div>
               <a
                 href="#"
-                style={{
-                  color: "#fff",
-                  textDecoration: "underline",
-                  fontWeight: 600,
-                  fontSize: 16,
-                }}
-              >
+                style={{ color: "#fff", textDecoration: "underline", fontWeight: 600, fontSize: 16 }}>
                 Shop Now
               </a>
             </div>
@@ -788,17 +638,7 @@ export default function Home() {
             <img
               src="https://cdn.notinoimg.com/images/gallery/gucci/gucci-intense-oud-edp__1.jpg"
               alt="Perfume"
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                opacity: 0.7,
-                zIndex: 0,
-              }}
-            />
+              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.7, zIndex: 0 }} />
             <div style={{ position: "relative", zIndex: 1 }}>
               <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
                 Perfume
@@ -808,13 +648,7 @@ export default function Home() {
               </div>
               <a
                 href="#"
-                style={{
-                  color: "#fff",
-                  textDecoration: "underline",
-                  fontWeight: 600,
-                  fontSize: 16,
-                }}
-              >
+                style={{ color: "#fff", textDecoration: "underline", fontWeight: 600, fontSize: 16 }} >
                 Shop Now
               </a>
             </div>
@@ -823,38 +657,12 @@ export default function Home() {
       </section>
 
       {/* Service Features Section */}
-<section style={{
-  maxWidth: 1200,
-  margin: "56px auto 0",
-  padding: "0 16px 32px 16px"
-}}>
-  <div style={{
-    display: "flex",
-    justifyContent: "center",
-    gap: 80,
-    flexWrap: "wrap"
-  }}>
+<section style={{ maxWidth: 1200, margin: "56px auto 0", padding: "0 16px 32px 16px" }}>
+  <div style={{ display: "flex", justifyContent: "center", gap: 80, flexWrap: "wrap" }}>
     {/* Free and Fast Delivery */}
     <div style={{ textAlign: "center", minWidth: 220 }}>
-      <div style={{
-        margin: "0 auto 18px",
-        width: 64,
-        height: 64,
-        borderRadius: "50%",
-        background: "#a9a9a9",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      }}>
-        <span style={{
-          background: "#000000",
-          borderRadius: "50%",
-          width: 48,
-          height: 48,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}>
+      <div style={{ margin: "0 auto 18px", width: 64, height: 64, borderRadius: "50%", background: "#a9a9a9", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <span style={{ background: "#000000", borderRadius: "50%", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <FiTruck size={28} color="#fff" />
         </span>
       </div>
@@ -863,25 +671,8 @@ export default function Home() {
     </div>
     {/* 24/7 Customer Service */}
     <div style={{ textAlign: "center", minWidth: 220 }}>
-      <div style={{
-        margin: "0 auto 18px",
-        width: 64,
-        height: 64,
-        borderRadius: "50%",
-        background: "#a9a9a9",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      }}>
-        <span style={{
-          background: "#000000",
-          borderRadius: "50%",
-          width: 48,
-          height: 48,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}>
+      <div style={{ margin: "0 auto 18px", width: 64, height: 64, borderRadius: "50%", background: "#a9a9a9", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <span style={{ background: "#000000", borderRadius: "50%", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <FiHeadphones size={28} color="#fff" />
         </span>
       </div>
@@ -890,25 +681,8 @@ export default function Home() {
     </div>
     {/* Money Back Guarantee */}
     <div style={{ textAlign: "center", minWidth: 220 }}>
-      <div style={{
-        margin: "0 auto 18px",
-        width: 64,
-        height: 64,
-        borderRadius: "50%",
-        background: "#a9a9a9",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      }}>
-        <span style={{
-          background: "#000000",
-          borderRadius: "50%",
-          width: 48,
-          height: 48,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}>
+      <div style={{ margin: "0 auto 18px", width: 64, height: 64, borderRadius: "50%", background: "#a9a9a9", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <span style={{ background: "#000000", borderRadius: "50%", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <FiCheckCircle size={28} color="#fff" />
         </span>
       </div>
@@ -917,21 +691,12 @@ export default function Home() {
     </div>
   </div>
 </section>
-
-
       {/* Footer */}
       <footer style={{ padding: "40px 0", background: "#fff", textAlign: "center" }}>
         <img
           src="/images/Footer.svg"
           alt="Footer"
-          style={{
-            width: "1440px",
-            maxWidth: "1200px",
-            display: "block",
-            margin: "0 auto",
-            borderRadius: "8px"
-          }}
-        />
+          style={{ width: "1440px", maxWidth: "1200px", display: "block", margin: "0 auto", borderRadius: "8px" }} />
       </footer>
     </div>
   );
