@@ -11,7 +11,7 @@ const flashSales = [
     discount: 40,
     price: 120,
     oldPrice: 160,
-    img: "https://m.media-amazon.com/images/I/61N6p7B+XSL._AC_UF894,1000_QL80_.jpg",
+    img: "/images/Frame 611.png",
     rating: 4.5,
     reviews: 88,
   },
@@ -21,7 +21,7 @@ const flashSales = [
     discount: 35,
     price: 960,
     oldPrice: 1500,
-    img: "https://m.media-amazon.com/images/I/81PLqxtrJzL._AC_UF894,1000_QL80_.jpg",
+    img: "/images/keyboard.svg",
     rating: 4.2,
     reviews: 75,
   },
@@ -31,7 +31,7 @@ const flashSales = [
     discount: 30,
     price: 370,
     oldPrice: 400,
-    img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UF894,1000_QL80_.jpg",
+    img: "/images/Moniter.svg",
     rating: 4.7,
     reviews: 98,
   },
@@ -41,7 +41,7 @@ const flashSales = [
     discount: 25,
     price: 375,
     oldPrice: 400,
-    img: "https://m.media-amazon.com/images/I/71y4ZK3QK5L._AC_UF894,1000_QL80_.jpg",
+    img: "/images/Chair.svg",
     rating: 4.6,
     reviews: 99,
   },
@@ -277,7 +277,7 @@ export default function Home() {
 
       {/* Flash Sales Section */}
       <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
           <div style={{
                width: 20,
                height: 30,
@@ -287,29 +287,36 @@ export default function Home() {
           <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>Today's</span>
         </div>
         
-        <div style={{ display: "flex", alignItems: "center", gap: 32, margin: "8px 0 0 0" }}>
-        <h2 style={{ fontSize: 36, fontWeight: 600, margin: " 0" }}>Flash Sales</h2>
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 32, margin: 32 }}>
+        <h2 style={{ fontSize: 36, fontWeight: 700, margin: " 0", letterSpacing: "-1px" }}>Flash Sales</h2>
         {/* Timer */}
-        <div style={{ display: "flex", gap: 32, margin: "8px 0 0 0" }}>
+        <div style={{ display: "flex", gap: 28, marginLeft: 18 }}>
           {["Days", "Hours", "Minutes", "Seconds"].map((label, i) => (
             <div key={label} style={{ textAlign: "center" }}>
               <div style={{ fontSize: 13, fontWeight: 500, marginBottom: 4 }}>{label}</div>
-              <div style={{ fontSize: 28, fontWeight: 600, letterSpacing: 2}}>03</div>
+              <div style={{ fontSize: 28, fontWeight: 600, letterSpacing: 2}}>03:</div>
             </div>
           ))}
         </div>
         </div>
         {/* Product Cards */}
-        <div style={{ display: "flex", gap: 24, alignItems: "stretch", margin: "24px 0" }}>
+        <div style={{ display: "flex", gap: 24, alignItems: "stretch", margin: 32 }}>
           {flashSales.map(product => (
             <div key={product.id} style={{
               background: "#fff",
               borderRadius: 10,
               boxShadow: "0 2px 8px rgba(0,0,0,0.02)",
               padding: 16,
-              width: 220,
-              position: "relative"
-            }}>
+              width: 270,
+              height: 350,
+              position: "relative",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              boxSizing: "border-box",
+              marginLeft: "auto",
+              marginRight: "auto"
+             }}>
               {/*Discount Label */}
               <span style={{
                 position: "absolute", top: 16, left: 16, background: "#db4444", color: "#fff",
@@ -323,9 +330,20 @@ export default function Home() {
               }}>
                 <FiHeart />
               </span>
+              {/* Eye Icon  */}
+               <span style={{
+                 position: "absolute",
+                 top: 44,
+                 right: 16,
+                 color: "#222",
+                 cursor: "pointer",
+                 zIndex: 10
+                 }}>
+                <FiEye />
+               </span>
               {/* Product Image */}
               <div style={{
-                   background: "#fff",
+                   background: "#f5f5f5",
                    borderRadius: 10,
                    boxShadow: "0 2px 8px rgba(0,0,0,0.02)",
                    padding: 16,
@@ -334,7 +352,7 @@ export default function Home() {
                    zIndex: 0
                    }}>
 
-              <img src={"/images/Frame 611.png"} alt={product.name} style={{ width: "100%", height: 120, objectFit: "contain", marginBottom: 12 }} />
+              <img src={product.img} alt={product.name} style={{ width: "270px", height: 150, objectFit: "contain", marginBottom: 12 }} />
               <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>{product.name}</div>
               
                {/* Rating Section */}
