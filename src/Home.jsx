@@ -2,6 +2,7 @@ import React from "react";
 import { FiHeart, FiChevronLeft, FiChevronRight, FiEye, FiTruck, FiHeadphones, FiCheckCircle, FiSearch } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 import { BsCamera, BsPhone, BsLaptop, BsSmartwatch, BsHeadphones, BsController } from "react-icons/bs";
+import Navbar from './components/Navbar';
 
 // Product data for Flash Sales
 const flashSales = [
@@ -43,10 +44,9 @@ const ourProducts = [
 
 export default function Home() {
   return (
-    <div style={{margin: 0, fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a1a", minHeight: "100vh"}}>
-
-      {/* Top Announcement Bar */}
-      <div style={{ background: "#000",color: "#fff",padding: "12px 0",fontSize: "16px", fontWeight: 500, display: "flex",justifyContent: "center",alignItems: "center",position: "relative" }}>
+    <>
+       {/* Top Announcement Bar */}
+      <div style={{ width: "100vw",margin: 0,background: "#000",color: "#fff",padding: "12px 0",fontSize: "16px", fontWeight: 500, display: "flex",justifyContent: "center",alignItems: "center",position: "relative",left: 0,top: 0,borderRadius: 0,boxSizing: "border-box" }}>
         <div style={{ flex: 1, textAlign: "center" }}>
           Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%!{" "}
           <a href="#" style={{ color: "#fff", textDecoration: "underline", fontWeight: 700, marginLeft: "8px" }}>
@@ -57,42 +57,8 @@ export default function Home() {
           English <span style={{ fontSize: "10px", marginLeft: "4px" }}>▼</span>
         </div>
       </div>
-
- 
-      {/* Navbar */}
-      <div style={{ display: "flex", alignItems: "center", padding: "0 40px", height: "70px", borderBottom: "1px solid #eee", background: "#fff" }}>
-        <div style={{ fontSize: "26px", fontWeight: 700, marginRight: "150px" }}>Exclusive</div>
-        <nav style={{ display: "flex", gap: "40px", fontSize: "17px", fontWeight: 500 }}>
-          <a href="#" style={{ color: "#1a1a1a", textDecoration: "none", position: "relative", padding: "4px 0", borderBottom: "2px solid #1a1a1a" }}>
-            Home
-          </a>
-          <a href="#" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
-            Contact
-          </a>
-          <a href="#" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
-            About
-          </a>
-          <a href="#" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
-            Sign Up
-          </a>
-        </nav>
-
-        <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
-        <div style={{ position: "relative", width: "320px", display: "flex", alignItems: "center" }}>
-          <input
-            type="text"
-            placeholder="What are you looking for?"
-            style={{ width: "320px", padding: "8px 40px 8px 16px", border: "1px solid #ddd", borderRadius: "8px", fontSize: "15px", outline: "none"}} />
-          <FiSearch
-             size={20}
-             style={{ position: "absolute", right: 14, top: "50%", transform: "translateY(-50%)", color: "#888", pointerEvents: "none" }}  />
-        </div>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "22px", marginLeft: "30px" }}>
-          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Wishlist" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
-          <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Cart" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
-        </div>
-      </div>
+    <Navbar />
+    <div style={{margin: 0, fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a1a", minHeight: "100vh"}}>
 
       {/* Main Content */}
       <div style={{ display: "flex", maxWidth: "1200px", margin: "32px auto 0", gap: "32px"}}>
@@ -508,5 +474,6 @@ export default function Home() {
           style={{ width: "1440px", maxWidth: "1200px", display: "block", margin: "0 auto", borderRadius: "8px" }} />
       </footer>
     </div>
+    </>
   );
 }
