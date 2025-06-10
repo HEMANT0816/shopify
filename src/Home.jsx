@@ -58,6 +58,7 @@ export default function Home() {
         </div>
       </div>
 
+ 
       {/* Navbar */}
       <div style={{ display: "flex", alignItems: "center", padding: "0 40px", height: "70px", borderBottom: "1px solid #eee", background: "#fff" }}>
         <div style={{ fontSize: "26px", fontWeight: 700, marginRight: "150px" }}>Exclusive</div>
@@ -88,9 +89,8 @@ export default function Home() {
         </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "22px", marginLeft: "30px" }}>
-          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="User" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
-          <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Wishlist" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
-          <img src="https://cdn-icons-png.flaticon.com/512/126/126515.png" alt="Cart" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
+          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Wishlist" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
+          <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Cart" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
         </div>
       </div>
 
@@ -364,17 +364,21 @@ export default function Home() {
 
       {/* New Arrival Section */}
       <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+          <div style={{ width: 20, height: 30, background: "#db4444", borderRadius: 2 }} />
+          <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>Featured</span>
+        </div>
         <h2 style={{ fontSize: 32, fontWeight: 700, margin: "0 0 32px 0" }}>New Arrival</h2>
         <div
-          style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "24px", minHeight: 420 }} >
+          style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "24px", height: 600 }} >
           {/* PlayStation 5 Large Card */}
           <div
             style={{ gridRow: "1 / span 2",gridColumn: "1 / 2",background: "#111",color: "#fff",borderRadius: 16,position: "relative",overflow: "hidden",
               display: "flex",flexDirection: "column",justifyContent: "flex-end",padding: "32px", minHeight: 420 }} >
             <img
-              src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans/36190796/6e2c1b3d0e0b2d8c3e9b4e6e1b4e3d1e6b3b1e6e.png"
+              src="/images/ps5.svg"
               alt="PlayStation 5"
-              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.7, zIndex: 0 }} />
+              style={{ position: "absolute", top: 89, left: 29, width: 511, height: 511, objectFit: "cover", opacity: 0.7, zIndex: 0 }} />
             <div style={{ position: "relative", zIndex: 1 }}>
               <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>
                 PlayStation 5
@@ -395,9 +399,9 @@ export default function Home() {
             style={{ gridRow: "1 / 2",gridColumn: "2 / 4",background: "#111",color: "#fff",borderRadius: 16,padding: "32px",display: "flex",
               flexDirection: "row",alignItems: "flex-end",position: "relative",minHeight: 200,overflow: "hidden" }} >
             <img
-              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+              src="/images/women.svg"
               alt="Women's Collections"
-              style={{ position: "absolute",top: 0,left: 0,width: "100%",height: "100%",objectFit: "cover",opacity: 0.7,zIndex: 0 }} />
+              style={{ position: "absolute",top: 0,right: 0,width: 432,height: 286,objectFit: "cover",opacity: 0.7,zIndex: 0 }} />
             <div style={{ position: "relative", zIndex: 1 }}>
               <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
                 Women's Collections
@@ -418,9 +422,9 @@ export default function Home() {
             style={{ gridRow: "2 / 3", gridColumn: "2 / 3",background: "#111",color: "#fff",borderRadius: 16,padding: "32px",display: "flex",
               flexDirection: "column",justifyContent: "flex-end",position: "relative",minHeight: 200,overflow: "hidden" }} >
             <img
-              src="https://images-na.ssl-images-amazon.com/images/I/61u48FEsQwL._AC_SL1500_.jpg"
+              src="/images/Frame 707.svg"
               alt="Speakers"
-              style={{ position: "absolute",top: 0,left: 0,width: "100%",height: "100%",objectFit: "cover",opacity: 0.7,zIndex: 0 }} />
+              style={{ position: "absolute",top: 31,left: 30,width: 210,height: 222,objectFit: "cover",opacity: 0.7,zIndex: 0 }} />
             <div style={{ position: "relative", zIndex: 1 }}>
               <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
                 Speakers
@@ -441,9 +445,9 @@ export default function Home() {
             style={{ gridRow: "2 / 3", gridColumn: "3 / 4", background: "#111", color: "#fff", borderRadius: 16, padding: "32px", display: "flex",
               flexDirection: "column", justifyContent: "flex-end", position: "relative", minHeight: 200, overflow: "hidden" }} >
             <img
-              src="https://cdn.notinoimg.com/images/gallery/gucci/gucci-intense-oud-edp__1.jpg"
+              src="/images/perfume.svg"
               alt="Perfume"
-              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.7, zIndex: 0 }} />
+              style={{ position: "absolute", top: 20, left: 30, width: 201, height: 203, objectFit: "cover", opacity: 0.7, zIndex: 0 }} />
             <div style={{ position: "relative", zIndex: 1 }}>
               <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
                 Perfume
