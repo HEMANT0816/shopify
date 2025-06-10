@@ -6,36 +6,9 @@ import { BsCamera, BsPhone, BsLaptop, BsSmartwatch, BsHeadphones, BsController }
 // Product data for Flash Sales
 const flashSales = [
   {id: 1, name: "HAVIT HV-G92 Gamepad", discount: 40, price: 120, oldPrice: 160, img: "/images/Frame 611.png", rating: 4.5, reviews: 88 },
-  {
-    id: 2,
-    name: "AK-900 Wired Keyboard",
-    discount: 35,
-    price: 960,
-    oldPrice: 1500,
-    img: "/images/keyboard.svg",
-    rating: 4.2,
-    reviews: 75,
-  },
-  {
-    id: 3,
-    name: "IPS LCD Gaming Monitor",
-    discount: 30,
-    price: 370,
-    oldPrice: 400,
-    img: "/images/Moniter.svg",
-    rating: 4.7,
-    reviews: 98,
-  },
-  {
-    id: 4,
-    name: "S-Series Comfort Chair",
-    discount: 25,
-    price: 375,
-    oldPrice: 400,
-    img: "/images/Chair.svg",
-    rating: 4.6,
-    reviews: 99,
-  },
+  {id: 2, name: "AK-900 Wired Keyboard", discount: 35, price: 960, oldPrice: 1500, img: "/images/keyboard.svg", rating: 4.2, reviews: 75 },
+  {id: 3, name: "IPS LCD Gaming Monitor", discount: 30, price: 370, oldPrice: 400, img: "/images/Moniter.svg", rating: 4.7, reviews: 98 },
+  {id: 4, name: "S-Series Comfort Chair", discount: 25, price: 375, oldPrice: 400, img: "/images/Chair.svg", rating: 4.6, reviews: 99 },
 ];
 
 // Category data
@@ -50,108 +23,22 @@ const categories = [
 
 // Best Selling Products data
 const bestSelling = [
-  {
-    id: 1,
-    name: "The north coat",
-    price: 260,
-    oldPrice: 360,
-    img: "/images/Frame 605.svg",
-    rating: 4.5,
-    reviews: 65,
-  },
-  {
-    id: 2,
-    name: "Gucci duffle bag",
-    price: 960,
-    oldPrice: 1160,
-    img: "/images/duffle-bag.svg",
-    rating: 4.5,
-    reviews: 65,
-  },
-  {
-    id: 3,
-    name: "RGB liquid CPU Cooler",
-    price: 160,
-    oldPrice: 170,
-    img: "/images/speaker.svg",
-    rating: 4.5,
-    reviews: 65,
-  },
-  {
-    id: 4,
-    name: "Small BookSelf",
-    price: 360,
-    oldPrice: null,
-    img: "/images/Bookshelf.svg",
-    rating: 4.5,
-    reviews: 65,
-  },
+  { id: 1, name: "The north coat",price: 260,oldPrice: 360,img: "/images/Frame 605.svg",rating: 4.5,reviews: 65 },
+  { id: 2, name: "Gucci duffle bag",price: 960, oldPrice: 1160,img: "/images/duffle-bag.svg",rating: 4.5,reviews: 65 },
+  { id: 3, name: "RGB liquid CPU Cooler",price: 160,oldPrice: 170,img: "/images/speaker.svg",rating: 4.5,reviews: 65 },
+  { id: 4, name: "Small BookSelf", price: 360,oldPrice: null, img: "/images/Bookshelf.svg", rating: 4.5, reviews: 65 },
 ];
 
 //Our Products Data
 const ourProducts = [
   { id: 1, name: "Breed Dry Dog Food", price: 100, img: "/images/Cesar.svg",rating: 3,reviews: 35  },
   { id: 2, name: "CANON EOS DSLR Camera",price: 360,img: "/images/Camera.svg",rating: 4,reviews: 95 },
-  {
-    id: 3,
-    name: "IPS LCD Gaming Monitor",
-    discount: 30,
-    price: 370,
-    oldPrice: 400,
-    img: "/images/monitor.png",
-    rating: 4.7,
-    reviews: 98,
-  },
-  {
-    id: 4,
-    name: "S-Series Comfort Chair",
-    discount: 25,
-    price: 375,
-    oldPrice: 400,
-    img: "/images/chair.png",
-    rating: 4.6,
-    reviews: 99,
-  },
-  {
-    id: 5,
-    name: "Wireless Headphones",
-    discount: 22,
-    price: 150,
-    oldPrice: 200,
-    img: "/images/headphones.png",
-    rating: 4.3,
-    reviews: 60,
-  },
-  {
-    id: 6,
-    name: "Smart Watch",
-    discount: 18,
-    price: 199,
-    oldPrice: 250,
-    img: "/images/smartwatch.png",
-    rating: 4.8,
-    reviews: 120,
-  },
-  {
-    id: 7,
-    name: "Bluetooth Speaker",
-    discount: 20,
-    price: 99,
-    oldPrice: 120,
-    img: "/images/speaker.png",
-    rating: 4.4,
-    reviews: 77,
-  },
-  {
-    id: 8,
-    name: "Gaming Mouse",
-    discount: 15,
-    price: 75,
-    oldPrice: 90,
-    img: "/images/mouse.png",
-    rating: 4.7,
-    reviews: 54,
-  },
+  { id: 3, name: "ASUS FHD GAMING LAPTOP",price: 700,img: "/images/ideapad.svg",rating: 5, reviews: 325 },
+  { id: 4, name: "Curology Product Set",price: 500, img: "/images/set.png",rating: 4,reviews: 145 },
+  { id: 5, name: "Kids Electric Car", price: 960, img: "/images/Car.svg",rating: 5,reviews: 65 },
+  { id: 6, name: "Jr. Zoom Soccer Cleats", price: 1160,img: "/images/shoes.svg", rating: 5, reviews: 35 },
+  { id: 7, name: "GP11 Shooter USB Gamepad", price: 660, img: "/images/GP11.png",rating: 4.3,reviews: 77},
+  { id: 8, name: "Quilted Satin Jacket",price: 660, img: "/images/jacket.svg", rating: 4.7,reviews: 54},
 ];
 
 export default function Home() {
@@ -159,17 +46,7 @@ export default function Home() {
     <div style={{margin: 0, fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a1a", minHeight: "100vh"}}>
 
       {/* Top Announcement Bar */}
-      <div style={{
-        background: "#000",
-        color: "#fff",
-        padding: "12px 0",
-        fontSize: "16px",
-        fontWeight: 500,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative"
-      }}>
+      <div style={{ background: "#000",color: "#fff",padding: "12px 0",fontSize: "16px", fontWeight: 500, display: "flex",justifyContent: "center",alignItems: "center",position: "relative" }}>
         <div style={{ flex: 1, textAlign: "center" }}>
           Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%!{" "}
           <a href="#" style={{ color: "#fff", textDecoration: "underline", fontWeight: 700, marginLeft: "8px" }}>
@@ -492,21 +369,8 @@ export default function Home() {
           style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "24px", minHeight: 420 }} >
           {/* PlayStation 5 Large Card */}
           <div
-            style={{
-              gridRow: "1 / span 2",
-              gridColumn: "1 / 2",
-              background: "#111",
-              color: "#fff",
-              borderRadius: 16,
-              position: "relative",
-              overflow: "hidden",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              padding: "32px",
-              minHeight: 420,
-            }}
-          >
+            style={{ gridRow: "1 / span 2",gridColumn: "1 / 2",background: "#111",color: "#fff",borderRadius: 16,position: "relative",overflow: "hidden",
+              display: "flex",flexDirection: "column",justifyContent: "flex-end",padding: "32px", minHeight: 420 }} >
             <img
               src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans/36190796/6e2c1b3d0e0b2d8c3e9b4e6e1b4e3d1e6b3b1e6e.png"
               alt="PlayStation 5"
@@ -528,35 +392,12 @@ export default function Home() {
 
           {/* Women's Collections */}
           <div
-            style={{
-              gridRow: "1 / 2",
-              gridColumn: "2 / 4",
-              background: "#111",
-              color: "#fff",
-              borderRadius: 16,
-              padding: "32px",
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "flex-end",
-              position: "relative",
-              minHeight: 200,
-              overflow: "hidden",
-            }}
-          >
+            style={{ gridRow: "1 / 2",gridColumn: "2 / 4",background: "#111",color: "#fff",borderRadius: 16,padding: "32px",display: "flex",
+              flexDirection: "row",alignItems: "flex-end",position: "relative",minHeight: 200,overflow: "hidden" }} >
             <img
               src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
               alt="Women's Collections"
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                opacity: 0.7,
-                zIndex: 0,
-              }}
-            />
+              style={{ position: "absolute",top: 0,left: 0,width: "100%",height: "100%",objectFit: "cover",opacity: 0.7,zIndex: 0 }} />
             <div style={{ position: "relative", zIndex: 1 }}>
               <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
                 Women's Collections
@@ -574,35 +415,12 @@ export default function Home() {
 
           {/* Speakers */}
           <div
-            style={{
-              gridRow: "2 / 3",
-              gridColumn: "2 / 3",
-              background: "#111",
-              color: "#fff",
-              borderRadius: 16,
-              padding: "32px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              position: "relative",
-              minHeight: 200,
-              overflow: "hidden",
-            }}
-          >
+            style={{ gridRow: "2 / 3", gridColumn: "2 / 3",background: "#111",color: "#fff",borderRadius: 16,padding: "32px",display: "flex",
+              flexDirection: "column",justifyContent: "flex-end",position: "relative",minHeight: 200,overflow: "hidden" }} >
             <img
               src="https://images-na.ssl-images-amazon.com/images/I/61u48FEsQwL._AC_SL1500_.jpg"
               alt="Speakers"
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                opacity: 0.7,
-                zIndex: 0,
-              }}
-            />
+              style={{ position: "absolute",top: 0,left: 0,width: "100%",height: "100%",objectFit: "cover",opacity: 0.7,zIndex: 0 }} />
             <div style={{ position: "relative", zIndex: 1 }}>
               <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
                 Speakers
@@ -620,21 +438,8 @@ export default function Home() {
 
           {/* Perfume */}
           <div
-            style={{
-              gridRow: "2 / 3",
-              gridColumn: "3 / 4",
-              background: "#111",
-              color: "#fff",
-              borderRadius: 16,
-              padding: "32px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              position: "relative",
-              minHeight: 200,
-              overflow: "hidden",
-            }}
-          >
+            style={{ gridRow: "2 / 3", gridColumn: "3 / 4", background: "#111", color: "#fff", borderRadius: 16, padding: "32px", display: "flex",
+              flexDirection: "column", justifyContent: "flex-end", position: "relative", minHeight: 200, overflow: "hidden" }} >
             <img
               src="https://cdn.notinoimg.com/images/gallery/gucci/gucci-intense-oud-edp__1.jpg"
               alt="Perfume"
