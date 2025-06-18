@@ -100,7 +100,7 @@ function Navbar() {
   );
 }
 
-// Menu item component for clarity
+// Menu item 
 function MenuItem({ icon, label, last }) {
    const [hover, setHover] = React.useState(false);
   return (

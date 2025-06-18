@@ -1,10 +1,18 @@
 import React from "react";
-import { FiHeart, FiChevronLeft, FiChevronRight, FiEye, FiTruck, FiHeadphones, FiCheckCircle, FiSearch } from "react-icons/fi";
-import { FaStar } from "react-icons/fa";
-import { BsCamera, BsPhone, BsLaptop, BsSmartwatch, BsHeadphones, BsController } from "react-icons/bs";
-import Navbar from './components/Navbar';
+import Navbar from "./components/Navbar";
+import AnnouncementBar from "./components/AnnouncementBar";
+import Sidebar from "./components/Sidebar";
+import Banner from "./components/Banner";
+import Flash from "./components/Flash";
+import CategorySection from "./components/CategorySection";
+import BestSellingSection from "./components/BestSellingSection";
+import OurProductsSection from "./components/OurProductsSection";
+import NewArrivalSection from "./components/NewArrivalSection";
+import ServiceFeatures from "./components/ServiceFeatures";
+import Footer from "./components/Footer";
 
-// Product data for Flash Sales
+// --- DATA ARRAYS (move to data.js if you like) ---
+
 const flashSales = [
   {id: 1, name: "HAVIT HV-G92 Gamepad", discount: 40, price: 120, oldPrice: 160, img: "/images/Frame 611.png", rating: 4.5, reviews: 88 },
   {id: 2, name: "AK-900 Wired Keyboard", discount: 35, price: 960, oldPrice: 1500, img: "/images/keyboard.svg", rating: 4.2, reviews: 75 },
@@ -12,7 +20,8 @@ const flashSales = [
   {id: 4, name: "S-Series Comfort Chair", discount: 25, price: 375, oldPrice: 400, img: "/images/Chair.svg", rating: 4.6, reviews: 99 },
 ];
 
-// Category data
+import { BsCamera, BsPhone, BsLaptop, BsSmartwatch, BsHeadphones, BsController } from "react-icons/bs";
+
 const categories = [
   { name: "Phones", icon: <BsPhone size={32} /> },
   { name: "Computers", icon: <BsLaptop size={32} /> },
@@ -22,7 +31,6 @@ const categories = [
   { name: "Gaming", icon: <BsController size={32} /> },
 ];
 
-// Best Selling Products data
 const bestSelling = [
   { id: 1, name: "The north coat",price: 260,oldPrice: 360,img: "/images/Frame 605.svg",rating: 4.5,reviews: 65 },
   { id: 2, name: "Gucci duffle bag",price: 960, oldPrice: 1160,img: "/images/duffle-bag.svg",rating: 4.5,reviews: 65 },
@@ -30,7 +38,6 @@ const bestSelling = [
   { id: 4, name: "Small BookSelf", price: 360,oldPrice: null, img: "/images/Bookshelf.svg", rating: 4.5, reviews: 65 },
 ];
 
-//Our Products Data
 const ourProducts = [
   { id: 1, name: "Breed Dry Dog Food", price: 100, img: "/images/Cesar.svg",rating: 3,reviews: 35  },
   { id: 2, name: "CANON EOS DSLR Camera",price: 360,img: "/images/Camera.svg",rating: 4,reviews: 95 },
@@ -45,435 +52,21 @@ const ourProducts = [
 export default function Home() {
   return (
     <>
-       {/* Top Announcement Bar */}
-      <div style={{ width: "100vw",margin: 0,background: "#000",color: "#fff",padding: "12px 0",fontSize: "16px", fontWeight: 500, display: "flex",justifyContent: "center",alignItems: "center",position: "relative",left: 0,top: 0,borderRadius: 0,boxSizing: "border-box" }}>
-        <div style={{ flex: 1, textAlign: "center" }}>
-          Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%!{" "}
-          <a href="#" style={{ color: "#fff", textDecoration: "underline", fontWeight: 700, marginLeft: "8px" }}>
-            ShopNow
-          </a>
+      <AnnouncementBar />
+      <Navbar />
+      <div style={{ margin: 0, fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a1a", minHeight: "100vh" }}>
+        <div style={{ display: "flex", maxWidth: "1200px", margin: "32px auto 0", gap: "32px" }}>
+          <Sidebar />
+          <Banner />
         </div>
-        <div style={{ position: "absolute", right: "40px", top: 0, bottom: 0, display: "flex", alignItems: "center", fontSize: "15px", cursor: "pointer" }}>
-          English <span style={{ fontSize: "10px", marginLeft: "4px" }}>▼</span>
-        </div>
+        <Flash flashSales={flashSales} />
+        <CategorySection categories={categories} />
+        <BestSellingSection bestSelling={bestSelling} />
+        <OurProductsSection ourProducts={ourProducts} />
+        <NewArrivalSection />
+        <ServiceFeatures />
+        <Footer />
       </div>
-    <Navbar />
-    <div style={{margin: 0, fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a1a", minHeight: "100vh"}}>
-
-      {/* Main Content */}
-      <div style={{ display: "flex", maxWidth: "1200px", margin: "32px auto 0", gap: "32px"}}>
-        {/* Sidebar */}
-        <aside style={{ width: "210px", borderRight: "1px solid #eee", paddingTop: "18px" }}>
-          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-            {["Woman's Fashion", "Men's Fashion", "Electronics", "Home & Lifestyle", "Medicine", "Sports & Outdoor", "Baby's & Toys", "Groceries & Pets", "Health & Beauty"].map((item, idx) => (
-              <li
-                key={idx}
-                style={{ fontSize: "16px",padding: "13px 0 13px 18px",cursor: "pointer",display: "flex",alignItems: "center",justifyContent: "space-between",transition: "background 0.2s" }}
-                onMouseEnter={(e) => e.currentTarget.style.background = "#f4f7ff"}
-                onMouseLeave={(e) => e.currentTarget.style.background = ""}
-              >
-                {item}
-                {(item === "Woman's Fashion" || item === "Men's Fashion") && (
-                  <span style={{ fontSize: "18px", marginLeft: "6px" }}>›</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </aside>
-
-  {/* Banner Section */}
-  <section style={{ flex: 1, padding: "0 0 0 32px", display: "flex", alignItems: "center", minWidth: 0 }}>
-    <div style={{ background: "#111", borderRadius: "18px", overflow: "hidden", display: "flex", alignItems: "center", width: "100%", minHeight: "320px", position: "relative", justifyContent: "center"}}>
-                <img
-                  src="/images/Frame 560.svg"
-                  alt="Banner"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", borderRadius: "18px" }} />
-                </div>
-              </section>
-              </div>
-
-{/* Flash Sales Section */}
-      <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-          <div style={{ width: 20, height: 30, background: "#db4444", borderRadius: 2 }} />
-          <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>Today's</span>
-        </div>
-        
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "8px 0 32px 0" }}>
-        <h2 style={{ fontSize: 36, fontWeight: 700, margin: " 0", letterSpacing: "-1px" }}>Flash Sales</h2>
-        {/* Timer */}
-        <div style={{ display: "flex", gap: 28, marginLeft: 18 }}>
-          {["Days", "Hours", "Minutes", "Seconds"].map((label, i) => (
-            <div key={label} style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 13, fontWeight: 500, marginBottom: 4 }}>{label}</div>
-              <div style={{ fontSize: 28, fontWeight: 600, letterSpacing: 2}}>03:</div>
-            </div>
-          ))}
-        </div>
-          {/* Arrows */}
-          <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "space-between" , gap: 8, marginLeft: 12 }}>
-            <button style={{
-              background: "#f5f5f5", border: "1px solid #eee", borderRadius: "50%", width: 46, height: 36,
-              display: "flex", justifyContent: "center", cursor: "pointer"
-            }}>
-              <img src="/images/left-arrow.png" alt="Left" style={{ width: 24, height: 24 }} />
-            </button>
-            <button style={{
-              background: "#f5f5f5", border: "1px solid #eee", borderRadius: "50%", width: 46, height: 36,
-              display: "flex", justifyContent: "center", cursor: "pointer"
-            }}>
-              <img src="/images/right-arrow.png" alt="Right" style={{ width: 24, height: 24 }} />
-            </button>
-          </div>
-            </div>
-
-         {/* Product Cards */}
-        <div style={{ display: "flex", gap: 24, alignItems: "stretch" }}>
-          {flashSales.map(product => (
-            <div key={product.id} style={{ background: "#fff", borderRadius: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.02)", padding: 16, width: 280,
-              height: 400, position: "relative", display: "flex", flexDirection: "column", alignItems: "center", boxSizing: "border-box"}}>
-          {/* Product Image */}
-           <div style={{ background: "#f5f5f5", borderRadius: 10, width: 280, height: 190, display: "flex", alignItems: "center", justifyContent: "center",
-                   marginBottom: 16, marginTop: 32, position: "relative", overflow: "hidden" }}>
-          {/*Discount Label */}
-            <span style={{
-                position: "absolute", top: 18, left: 18, background: "#db4444", color: "#fff",
-                borderRadius: 4, fontSize: 14, fontWeight: 700, padding: "4px 12px", zIndex: 10 }}>
-                -{product.discount}%
-              </span>
-              {/* Wishlist Icon */}
-              <span style={{ position: "absolute", top: 10, right: 10, color: "#222", cursor: "pointer", zIndex: 10 }}>
-                <FiHeart />
-              </span>
-              {/* Eye Icon  */}
-               <span style={{position: "absolute", top: 40, right: 10, color: "#222", cursor: "pointer", zIndex: 10 }}>
-                <FiEye />
-               </span>
-                  <img src={product.img} alt={product.name} style={{ width: "90%", height: "90%", objectFit: "contain", display: "block" }} />
-              </div>
-              <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>{product.name}</div>
-              {/* Rating Section */}
-              <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 14, color: "#f6b01e", marginBottom: 8 }}>
-                {Array(5).fill().map((_, i) => <FaStar key={i} color={i < Math.round(product.rating) ? "#f6b01e" : "#ddd"} size={14} />)}
-                <span style={{ color: "#222", fontWeight: 500 }}>({product.reviews})</span>
-              </div>
-              {/* Price Section */}
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-              <span style={{ color: "#db4444", fontWeight: 700 }}>${product.price}</span>
-              <span style={{ textDecoration: "line-through", color: "#888", fontSize: 14 }}>${product.oldPrice}</span>
-              </div>
-              {product.id === 2 ? (
-                <button style={{ width: "100%", background: "#000", color: "#fff", border: "none", borderRadius: 6,
-                  padding: "8px 0", fontWeight: 600, marginTop: 8, cursor: "pointer" }}>
-                  Add To Cart
-                </button>
-              ) : null}
-            </div>
-          ))}
-          </div>
-          </section>
-        {/* View All Products Button */}
-        <div style={{ textAlign: "center", margin: "24px 0" }}>
-          <button style={{ background: "#db4444", color: "#fff", border: "none", borderRadius: 6, padding: "14px 38px", fontWeight: 600, fontSize: 16, cursor: "pointer" }}>
-            View All Products
-          </button>
-        </div>
-
-      {/* Categories Section */}
-      <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{ width: 20, height: 30, background: "#db4444", borderRadius: 2 }} />
-        <div style={{ color: "#db4444", fontWeight: 600, fontSize: 16, marginBottom: 8 }}>Categories</div>
-        </div>
-        <h2 style={{ fontSize: 28, fontWeight: 700, margin: "8px 0 32px 0" }}>Browse By Category</h2>
-        <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
-          {categories.map(cat => (
-            <div key={cat.name} style={{ flex: "1 1 120px", minWidth: 120, maxWidth: 160, background: cat.active ? "#db4444" : "#fff",
-              color: cat.active ? "#fff" : "#222", border: `2px solid ${cat.active ? "#db4444" : "#eee"}`, borderRadius: 10, display: "flex",
-              flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px 0 20px 0", fontWeight: 600,
-              fontSize: 16, transition: "all 0.2s", cursor: "pointer" }}>
-              <div style={{ marginBottom: 12 }}>{cat.icon}</div>
-              {cat.name}
-            </div>
-          ))}
-          {/* Arrows */}
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 12, marginLeft: 12 }}>
-            <button style={{
-              background: "#fff", border: "1px solid #eee", borderRadius: "50%", width: 32, height: 32,
-              display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
-              <FiChevronLeft />
-            </button>
-            <button style={{
-              background: "#fff", border: "1px solid #eee", borderRadius: "50%", width: 32, height: 32,
-              display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
-              <FiChevronRight />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Best Selling Product */}
-      <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-          <div style={{ width: 20, height: 30, background: "#db4444", borderRadius: 2 }} />
-            <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>This Month</span></div>
-          <button style={{ background: "#db4444", color: "#fff", border: "none", borderRadius: 6,
-            padding: "8px 28px", fontWeight: 600, fontSize: 16, cursor: "pointer" }}>
-            View All
-          </button>
-        </div>
-        <div style={{display: "flex", alignItems: "center", justifyContent: "space-between", margin: "8px 0 32px 0"}}>
-        <h2 style={{ fontSize: 32, fontWeight: 700, margin: 0 }}>Best Selling Products</h2>
-          </div>
-        <div style={{ display: "flex", gap: 24, alignItems: "stretch" }}>
-          {bestSelling.map(product => (
-            <div key={product.id} style={{ background: "#f5f5f5", borderRadius: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.03)", padding: 20,
-              width: 220, position: "relative", display: "flex", flexDirection: "column", alignItems: "center"}}>
-              {/* Wishlist & View Icons */}
-              <div style={{ position: "absolute", top: 16, right: 16, display: "flex", flexDirection: "column", gap: 10 }}>
-                <span style={{ color: "#222", cursor: "pointer" }}><FiHeart /></span>
-                <span style={{ color: "#222", cursor: "pointer" }}><FiEye /></span>
-              </div>
-              {/* Product Image */}
-              <img src={product.img} alt={product.name} style={{ width: "100%", height: 120, objectFit: "contain", marginBottom: 12 }} />
-              {/* Product Name */}
-              <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4, textAlign: "center" }}>{product.name}</div>
-              {/* Price */}
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-                <span style={{ color: "#db4444", fontWeight: 700 }}>${product.price}</span>
-                {product.oldPrice && (
-                  <span style={{ textDecoration: "line-through", color: "#888", fontSize: 14 }}>${product.oldPrice}</span>
-                )}
-              </div>
-              {/* Rating */}
-              <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 14, color: "#f6b01e", marginBottom: 8 }}>
-                {Array(5).fill().map((_, i) => (
-                  <FaStar key={i} color={i < Math.round(product.rating) ? "#f6b01e" : "#ddd"} size={14} />
-                ))}
-                <span style={{ color: "#222", fontWeight: 500 }}>({product.reviews})</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <img
-       src="/images/Frame 600.png" 
-       alt="Custom Banner"
-  style={{ width: 1170, height: 500, display: "block", margin: "40px auto", objectFit: "cover" }} />
-      
-      {/* Our Products */}
-      <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-          <div style={{ width: 20, height: 30, background: "#db4444", borderRadius: 2 }} />
-          <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>Our Products</span>
-        </div>
-        
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "8px 0 32px 0" }}>
-        <h2 style={{ fontSize: 36, fontWeight: 700, margin: " 0", letterSpacing: "-1px" }}>Explore Our Products</h2>
-          {/* Arrows */}
-          <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "space-between" , gap: 8, marginLeft: 12 }}>
-            <button style={{
-              background: "#f5f5f5", border: "1px solid #eee", borderRadius: "50%", width: 46, height: 36,
-              display: "flex", justifyContent: "center", cursor: "pointer"
-            }}>
-              <img src="/images/left-arrow.png" alt="Left" style={{ width: 24, height: 24 }} />
-            </button>
-            <button style={{
-              background: "#f5f5f5", border: "1px solid #eee", borderRadius: "50%", width: 46, height: 36,
-              display: "flex", justifyContent: "center", cursor: "pointer"
-            }}>
-              <img src="/images/right-arrow.png" alt="Right" style={{ width: 24, height: 24 }} />
-            </button>
-          </div>
-            </div>
-
-         {/* Product Cards */}
-        <div style={{ display: "flex", gap: 24, alignItems: "stretch", flexWrap: "wrap" }}>
-          {ourProducts.map(product => (
-            <div key={product.id} style={{ background: "#fff", borderRadius: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.02)", padding: 16, width: 280,
-              height: 400, position: "relative", display: "flex", flexDirection: "column", alignItems: "center", boxSizing: "border-box"}}>
-          {/* Product Image */}
-           <div style={{ background: "#f5f5f5", borderRadius: 10, width: 280, height: 190, display: "flex", alignItems: "center", justifyContent: "center",
-                   marginBottom: 16, marginTop: 32, position: "relative", overflow: "hidden" }}>
-              {/* Wishlist Icon */}
-              <span style={{ position: "absolute", top: 10, right: 10, color: "#222", cursor: "pointer", zIndex: 10 }}>
-                <FiHeart />
-              </span>
-              {/* Eye Icon  */}
-               <span style={{position: "absolute", top: 40, right: 10, color: "#222", cursor: "pointer", zIndex: 10 }}>
-                <FiEye />
-               </span>
-                  <img src={product.img} alt={product.name} style={{ width: "90%", height: "90%", objectFit: "contain", display: "block" }} />
-              </div>
-              <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>{product.name}</div>
-              {/* Rating Section */}
-              <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 14, color: "#f6b01e", marginBottom: 8 }}>
-                {Array(5).fill().map((_, i) => <FaStar key={i} color={i < Math.round(product.rating) ? "#f6b01e" : "#ddd"} size={14} />)}
-                <span style={{ color: "#222", fontWeight: 500 }}>({product.reviews})</span>
-              </div>
-              {/* Price Section */}
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-              <span style={{ color: "#db4444", fontWeight: 700 }}>${product.price}</span>
-              </div>
-              {product.id === 2 ? (
-                <button style={{ width: "100%", background: "#000", color: "#fff", border: "none", borderRadius: 6,
-                  padding: "8px 0", fontWeight: 600, marginTop: 8, cursor: "pointer" }}>
-                  Add To Cart
-                </button>
-              ) : null}
-            </div>
-          ))}
-          </div>
-          </section>
-
-      {/* New Arrival Section */}
-      <section style={{ maxWidth: 1200, margin: "48px auto 0", padding: "0 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-          <div style={{ width: 20, height: 30, background: "#db4444", borderRadius: 2 }} />
-          <span style={{ color: "#db4444", fontWeight: 600, fontSize: 16 }}>Featured</span>
-        </div>
-        <h2 style={{ fontSize: 32, fontWeight: 700, margin: "0 0 32px 0" }}>New Arrival</h2>
-        <div
-          style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "24px", height: 600 }} >
-          {/* PlayStation 5 Large Card */}
-          <div
-            style={{ gridRow: "1 / span 2",gridColumn: "1 / 2",background: "#111",color: "#fff",borderRadius: 16,position: "relative",overflow: "hidden",
-              display: "flex",flexDirection: "column",justifyContent: "flex-end",padding: "32px", minHeight: 420 }} >
-            <img
-              src="/images/ps5.svg"
-              alt="PlayStation 5"
-              style={{ position: "absolute", top: 89, left: 29, width: 511, height: 511, objectFit: "cover", opacity: 0.7, zIndex: 0 }} />
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>
-                PlayStation 5
-              </div>
-              <div style={{ fontSize: 15, marginBottom: 18 }}>
-                Black and White version of the PS5 coming out on sale.
-              </div>
-              <a
-                href="#"
-                style={{ color: "#fff", textDecoration: "underline", fontWeight: 600, fontSize: 16 }} >
-                Shop Now
-              </a>
-            </div>
-          </div>
-
-          {/* Women's Collections */}
-          <div
-            style={{ gridRow: "1 / 2",gridColumn: "2 / 4",background: "#111",color: "#fff",borderRadius: 16,padding: "32px",display: "flex",
-              flexDirection: "row",alignItems: "flex-end",position: "relative",minHeight: 200,overflow: "hidden" }} >
-            <img
-              src="/images/women.svg"
-              alt="Women's Collections"
-              style={{ position: "absolute",top: 0,right: 0,width: 432,height: 286,objectFit: "cover",opacity: 0.7,zIndex: 0 }} />
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
-                Women's Collections
-              </div>
-              <div style={{ fontSize: 15, marginBottom: 18 }}>
-                Featured woman collections that give you another vibe.
-              </div>
-              <a
-                href="#"
-                style={{ color: "#fff", textDecoration: "underline", fontWeight: 600, fontSize: 16 }} >
-                Shop Now
-              </a>
-            </div>
-          </div>
-
-          {/* Speakers */}
-          <div
-            style={{ gridRow: "2 / 3", gridColumn: "2 / 3",background: "#111",color: "#fff",borderRadius: 16,padding: "32px",display: "flex",
-              flexDirection: "column",justifyContent: "flex-end",position: "relative",minHeight: 200,overflow: "hidden" }} >
-            <img
-              src="/images/Frame 707.svg"
-              alt="Speakers"
-              style={{ position: "absolute",top: 31,left: 30,width: 210,height: 222,objectFit: "cover",opacity: 0.7,zIndex: 0 }} />
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
-                Speakers
-              </div>
-              <div style={{ fontSize: 15, marginBottom: 18 }}>
-                Amazon wireless speakers
-              </div>
-              <a
-                href="#"
-                style={{ color: "#fff", textDecoration: "underline", fontWeight: 600, fontSize: 16 }}>
-                Shop Now
-              </a>
-            </div>
-          </div>
-
-          {/* Perfume */}
-          <div
-            style={{ gridRow: "2 / 3", gridColumn: "3 / 4", background: "#111", color: "#fff", borderRadius: 16, padding: "32px", display: "flex",
-              flexDirection: "column", justifyContent: "flex-end", position: "relative", minHeight: 200, overflow: "hidden" }} >
-            <img
-              src="/images/perfume.svg"
-              alt="Perfume"
-              style={{ position: "absolute", top: 20, left: 30, width: 201, height: 203, objectFit: "cover", opacity: 0.7, zIndex: 0 }} />
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>
-                Perfume
-              </div>
-              <div style={{ fontSize: 15, marginBottom: 18 }}>
-                GUCCI INTENSE OUD EDP
-              </div>
-              <a
-                href="#"
-                style={{ color: "#fff", textDecoration: "underline", fontWeight: 600, fontSize: 16 }} >
-                Shop Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Features Section */}
-<section style={{ maxWidth: 1200, margin: "56px auto 0", padding: "0 16px 32px 16px" }}>
-  <div style={{ display: "flex", justifyContent: "center", gap: 80, flexWrap: "wrap" }}>
-    {/* Free and Fast Delivery */}
-    <div style={{ textAlign: "center", minWidth: 220 }}>
-      <div style={{ margin: "0 auto 18px", width: 64, height: 64, borderRadius: "50%", background: "#a9a9a9", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <span style={{ background: "#000000", borderRadius: "50%", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <FiTruck size={28} color="#fff" />
-        </span>
-      </div>
-      <div style={{ fontWeight: 700, fontSize: 18, marginBottom: 4 }}>FREE AND FAST DELIVERY</div>
-      <div style={{ color: "#444", fontSize: 15 }}>Free delivery for all orders over $140</div>
-    </div>
-    {/* 24/7 Customer Service */}
-    <div style={{ textAlign: "center", minWidth: 220 }}>
-      <div style={{ margin: "0 auto 18px", width: 64, height: 64, borderRadius: "50%", background: "#a9a9a9", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <span style={{ background: "#000000", borderRadius: "50%", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <FiHeadphones size={28} color="#fff" />
-        </span>
-      </div>
-      <div style={{ fontWeight: 700, fontSize: 18, marginBottom: 4 }}>24/7 CUSTOMER SERVICE</div>
-      <div style={{ color: "#444", fontSize: 15 }}>Friendly 24/7 customer support</div>
-    </div>
-    {/* Money Back Guarantee */}
-    <div style={{ textAlign: "center", minWidth: 220 }}>
-      <div style={{ margin: "0 auto 18px", width: 64, height: 64, borderRadius: "50%", background: "#a9a9a9", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <span style={{ background: "#000000", borderRadius: "50%", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <FiCheckCircle size={28} color="#fff" />
-        </span>
-      </div>
-      <div style={{ fontWeight: 700, fontSize: 18, marginBottom: 4 }}>MONEY BACK GUARANTEE</div>
-      <div style={{ color: "#444", fontSize: 15 }}>We return money within 30 days</div>
-    </div>
-  </div>
-</section>
-      {/* Footer */}
-      <footer style={{ padding: "40px 0", background: "#fff", textAlign: "center" }}>
-        <img
-          src="/images/Footer.svg"
-          alt="Footer"
-          style={{ width: "1440px", maxWidth: "1200px", display: "block", margin: "0 auto", borderRadius: "8px" }} />
-      </footer>
-    </div>
     </>
   );
 }
