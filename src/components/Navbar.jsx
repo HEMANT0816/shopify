@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FiHeart, FiSearch, FiUser, FiLogOut } from "react-icons/fi";
+import { FiHeart, FiSearch, FiUser, FiLogOut, FiChevronLeft } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
-import { FiChevronLeft } from "react-icons/fi";
 
 function Navbar() {
   const [accountOpen, setAccountOpen] = useState(false);
@@ -19,7 +18,21 @@ function Navbar() {
   }, []);
 
   return (
-    <div style={{ display: "flex", alignItems: "center", padding: "0 40px", height: "70px", borderBottom: "1px solid #eee", background: "#fff" }}>
+    <div
+      style={{
+        position: "sticky",         // Sticky at the top
+        top: 0,
+        zIndex: 1000,
+        display: "flex",
+        alignItems: "center",
+        padding: "0 40px",
+        height: "70px",
+        borderBottom: "1px solid #eee",
+        background: "#fff",
+        width: "100%",              // Ensures full width
+        boxSizing: "border-box",    // Prevents overflow
+      }}
+    >
       {/* Logo */}
       <div style={{ fontSize: "26px", fontWeight: 700, marginRight: "150px" }}>Exclusive</div>
       {/* Navigation Links */}
@@ -102,7 +115,7 @@ function Navbar() {
 
 // Menu item 
 function MenuItem({ icon, label, last }) {
-   const [hover, setHover] = React.useState(false);
+  const [hover, setHover] = React.useState(false);
   return (
     <div
       style={{
