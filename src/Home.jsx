@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import AnnouncementBar from "./components/AnnouncementBar";
 import Sidebar from "./components/Sidebar";
@@ -10,6 +10,8 @@ import OurProductsSection from "./components/OurProductsSection";
 import NewArrivalSection from "./components/NewArrivalSection";
 import ServiceFeatures from "./components/ServiceFeatures";
 import Footer from "./components/Footer";
+// import { setUserInfo } from "./store/userSlice";
+
 
 // --- DATA ARRAYS (move to data.js if you like) ---
 
@@ -21,6 +23,8 @@ const flashSales = [
 ];
 
 import { BsCamera, BsPhone, BsLaptop, BsSmartwatch, BsHeadphones, BsController } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserInfo,resetUserInfo } from "./store/userSlice";
 
 const categories = [
   { name: "Phones", icon: <BsPhone size={32} /> },
@@ -50,8 +54,37 @@ const ourProducts = [
 ];
 
 export default function Home() {
+
+const [apiData,setApiData]=useState(0);
+
+//for creatinfg state we use slice
+//for fetching state we use useSlector
+
+const userinfo=useSelector((state)=>state.user);
+const count =useSelector((state)=>state.test)
+
+console.log(userinfo);
+
+console.log(count)
+
+//for updateing our state we use useDispatch
+
+const dispatch=useDispatch();
+
+const ChangeUserInfo=()=>{
+  dispatch(setUserInfo({Name:"hemant",age:24}))
+}
+
+const ResetUserInfo=()=>{
+  dispatch(resetUserInfo())
+}
+
+
+
   return (
     <>
+      <button onClick={ChangeUserInfo}>change datat</button>
+      <button onClick={ResetUserInfo}>reset datat</button>
       <AnnouncementBar />
       <Navbar />
       <div style={{ margin: 0, fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a1a", minHeight: "100vh" }}>

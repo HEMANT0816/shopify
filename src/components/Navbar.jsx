@@ -37,13 +37,13 @@ function Navbar() {
       <div style={{ fontSize: "26px", fontWeight: 700, marginRight: "150px" }}>Exclusive</div>
       {/* Navigation Links */}
       <nav style={{ display: "flex", gap: "40px", fontSize: "17px", fontWeight: 500 }}>
-        <a href="#" style={{ color: "#1a1a1a", textDecoration: "none", position: "relative", padding: "4px 0", borderBottom: "2px solid #1a1a1a" }}>
+        <a href="/" style={{ color: "#1a1a1a", textDecoration: "none", position: "relative", padding: "4px 0", borderBottom: "2px solid #1a1a1a" }}>
           Home
         </a>
         <a href="#" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
           Contact
         </a>
-        <a href="#" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
+        <a href="/about" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
           About
         </a>
         <a href="#" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
