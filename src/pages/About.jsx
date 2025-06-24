@@ -124,8 +124,8 @@ export default function About() {
         style={{
           display: "flex",
           justifyContent: "center",
-          gap: "22px",
-          margin: "48px 0 36px 0",
+          gap: "20px",
+          margin: "45px 0 36px 0",
           flexWrap: "wrap",
         }} >
          {/* Sellers */}

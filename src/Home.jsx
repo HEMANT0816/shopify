@@ -88,6 +88,7 @@ const CartInfo=()=>{
 
 
   return (
+    <div style={{ overflowX: "hidden" }}>
     <>
       <button onClick={ChangeUserInfo}>change datat</button>
       <button onClick={ResetUserInfo}>reset datat</button>
@@ -95,7 +96,7 @@ const CartInfo=()=>{
 
       <AnnouncementBar />
       <Navbar />
-      <div style={{ margin: 0, fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a1a", minHeight: "100vh" }}>
+      <div style={{ margin: 0, fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a1a", minHeight: "100vh"}}>
         <div style={{ display: "flex", maxWidth: "1200px", margin: "32px auto 0", gap: "32px" }}>
           <Sidebar />
           <Banner />
@@ -109,5 +110,6 @@ const CartInfo=()=>{
         <Footer />
       </div>
     </>
+    </div>
   );
 }
