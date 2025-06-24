@@ -14,6 +14,8 @@ import UserProfile from './pages/Profile';
 import SearchHistory from './pages/History';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import SignUp from './pages/SignUp';
+import Wishlist from './pages/Wishlist';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,8 @@ const router = createBrowserRouter([
       { path: '/search-history', element: <SearchHistory /> },
       { path: '/about', element: <About /> },
       { path: '/contact', element: <Contact /> },
+      { path: '/signup', element: <SignUp/> },
+      { path: '/wishlist', element: <Wishlist /> },
     ],
   },
 ]);

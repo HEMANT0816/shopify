@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FiHeart, FiSearch, FiUser, FiLogOut, FiChevronLeft } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [accountOpen, setAccountOpen] = useState(false);
@@ -20,7 +21,7 @@ function Navbar() {
   return (
     <div
       style={{
-        position: "sticky",         // Sticky at the top
+        position: "sticky",        
         top: 0,
         zIndex: 1000,
         display: "flex",
@@ -40,13 +41,13 @@ function Navbar() {
         <a href="/" style={{ color: "#1a1a1a", textDecoration: "none", position: "relative", padding: "4px 0", borderBottom: "2px solid #1a1a1a" }}>
           Home
         </a>
-        <a href="#" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
+        <a href="/contact" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
           Contact
         </a>
         <a href="/about" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
           About
         </a>
-        <a href="#" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
+        <a href="/signup" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
           Sign Up
         </a>
       </nav>
@@ -64,8 +65,12 @@ function Navbar() {
       </div>
       {/* Icons and Account Dropdown */}
       <div style={{ display: "flex", alignItems: "center", gap: "22px", marginLeft: "30px" }}>
+         <Link to="/wishlist">
         <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Wishlist" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
+        </Link>
+        <Link to="/cart">
         <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Cart" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
+        </Link>
         {/* User Account Dropdown */}
         <div ref={accountRef} style={{ position: "relative" }}>
           <span

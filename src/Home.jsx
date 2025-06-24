@@ -62,11 +62,13 @@ const [apiData,setApiData]=useState(0);
 
 const userinfo=useSelector((state)=>state.user);
 const count =useSelector((state)=>state.test)
+const add = useSelector((state)=>state.cart)
 
 console.log(userinfo);
 
 console.log(count)
 
+console.log(add)
 //for updateing our state we use useDispatch
 
 const dispatch=useDispatch();
@@ -79,12 +81,18 @@ const ResetUserInfo=()=>{
   dispatch(resetUserInfo())
 }
 
+const CartInfo=()=>{
+  dispatch(CartInfo())
+}
+
 
 
   return (
     <>
       <button onClick={ChangeUserInfo}>change datat</button>
       <button onClick={ResetUserInfo}>reset datat</button>
+      <button onClick={ResetUserInfo}>Cart</button>
+
       <AnnouncementBar />
       <Navbar />
       <div style={{ margin: 0, fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a1a", minHeight: "100vh" }}>
