@@ -4,19 +4,16 @@ export default function Footer() {
   return (
     <footer
       style={{
-        padding: "40px 0",
         background: "#fff",
         textAlign: "center",
-      }}
-    >
+      }} >
       <img
         src="/images/Footer.svg"
         alt="Footer"
         style={{
-          width: "1440px",
-          maxWidth: "1200px",
+          width: "100%",
           display: "block",
-          margin: "0 auto",
+          margin: "0 0 0 0",
           borderRadius: "8px",
         }}
       />
