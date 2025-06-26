@@ -12,7 +12,7 @@ const PhoneIcon = () => (
 );
 
 const MailIcon = () => (
-  <svg width="32" height="32" fill="none">
+  <svg width="48" height="32" fill="none">
     <circle cx="16" cy="16" r="16" fill="#DB4444" />
     <path d="M8 12a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-8zm2 0 6 5 6-5" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round"/>
   </svg>
@@ -49,25 +49,25 @@ export default function Contact() {
             maxWidth: 370,
           }}>
             {/* Call To Us */}
-            <div style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
               <PhoneIcon />
               <div>
-                <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 4 }}>Call To Us</div>
+                <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 4 }}>Call To Us</div><br/>
                 <div style={{ color: "#444", fontSize: 15, marginBottom: 6 }}>
-                  We are available 24/7, 7 days a week.<br />
+                  We are available 24/7, 7 days a week.<br /><br/>
                   Phone: +8801611112222
                 </div>
               </div>
             </div>
             <hr style={{ margin: "24px 0", borderColor: "#eee" }} />
             {/* Write To Us */}
-            <div style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
               <MailIcon />
               <div>
-                <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 4 }}>Write To US</div>
+                <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 4 }}>Write To US</div><br/>
                 <div style={{ color: "#444", fontSize: 15, marginBottom: 4 }}>
                   Fill out our form and we will contact you within 24 hours.
-                </div>
+                </div><br/>
                 <div style={{ color: "#444", fontSize: 15 }}>
                   Emails: customer@exclusive.com<br />
                   Emails: support@exclusive.com

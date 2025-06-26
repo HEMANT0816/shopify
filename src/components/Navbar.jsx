@@ -30,8 +30,8 @@ function Navbar() {
         height: "70px",
         borderBottom: "1px solid #eee",
         background: "#fff",
-        width: "100%",              // Ensures full width
-        boxSizing: "border-box",    // Prevents overflow
+        width: "100%",              
+        boxSizing: "border-box",    
       }}
     >
       {/* Logo */}
@@ -105,7 +105,7 @@ function Navbar() {
                 padding: "18px 0"
               }}
             >
-              <MenuItem icon={<FiUser />} label="Manage My Account" />
+              <MenuItem icon={<FiUser />} label="Manage My Account" to="/account" onClick={() => setAccountOpen(false)} />
               <MenuItem icon={<FiHeart />} label="My Order" />
               <MenuItem icon={<FiChevronLeft />} label="My Cancellations" />
               <MenuItem icon={<FaStar />} label="My Reviews" />
@@ -119,23 +119,43 @@ function Navbar() {
 }
 
 // Menu item 
-function MenuItem({ icon, label, last }) {
+function MenuItem({ icon, label, to, last, onClick }) {
   const [hover, setHover] = React.useState(false);
+  const style = {
+    display: "flex",
+    alignItems: "center",
+    gap: 12,
+    padding: "12px 24px",
+    cursor: "pointer",
+    fontSize: 16,
+    background: hover ? "#f4f7ff" : "#D3D3D3",
+    transition: "background 0.2s",
+    textDecoration: "none", // For Link
+    color: "inherit"
+  };
+
+  if (to) {
+    return (
+      <Link
+        to={to}
+        style={style}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        onClick={onClick}
+      >
+        <span style={{ fontSize: 20 }}>{icon}</span>
+        <span>{label}</span>
+      </Link>
+    );
+  }
+
   return (
     <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 12,
-        padding: "12px 24px",
-        cursor: "pointer",
-        fontSize: 16,
-        background: hover ? "#f4f7ff" : "#D3D3D3",
-        transition: "background 0.2s"
-      }}
+      style={style}
       className="menu-item"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onClick={onClick}
     >
       <span style={{ fontSize: 20 }}>{icon}</span>
       <span>{label}</span>
