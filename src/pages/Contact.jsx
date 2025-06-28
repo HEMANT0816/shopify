@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AnnouncementBar from "../components/AnnouncementBar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // SVG Icons
 const PhoneIcon = () => (
@@ -18,7 +20,31 @@ const MailIcon = () => (
   </svg>
 );
 
+// Input style for form fields
+const inputStyle = {
+  background: "#f6f6f6",
+  border: "1.5px solid #eee",
+  borderRadius: 4,
+  padding: "14px 12px",
+  fontSize: 15,
+  width: "100%",
+  boxSizing: "border-box",
+  outline: "none",
+  marginBottom: 0,
+  fontFamily: "inherit",
+};
+
 export default function Contact() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-in-out"
+    });
+    // refresh AOS on mount
+    AOS.refresh();
+  }, []);
+
   return (
     <div style={{ fontFamily: "sans-serif", background: "#fff", minHeight: "100vh", position: "relative", overflowX: "hidden" }}>
       <AnnouncementBar />
@@ -26,28 +52,37 @@ export default function Contact() {
 
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 20px 0 20px" }}>
         {/* Breadcrumb */}
-        <div style={{ color: "#888", marginBottom: 24, fontSize: 15 }}>
+        <div style={{ color: "#888", marginBottom: 24, fontSize: 15 }}
+          data-aos="fade-down"
+          data-aos-delay="100"
+        >
           Home / <span style={{ color: "#222" }}>Contact</span>
         </div>
 
         {/* Main Content */}
-        <div style={{
-          display: "flex",
-          gap: 32,
-          alignItems: "flex-start",
-          flexWrap: "wrap"
-        }}>
+        <div
+          style={{
+            display: "flex",
+            gap: 32,
+            alignItems: "flex-start",
+            flexWrap: "wrap"
+          }}
+        >
           {/* Left: Contact Info */}
-          <div style={{
-            flex: "1 1 320px",
-            minWidth: 300,
-            background: "#fff",
-            border: "2px solid #2196f3",
-            borderRadius: 8,
-            padding: "32px 28px",
-            boxSizing: "border-box",
-            maxWidth: 370,
-          }}>
+          <div
+            style={{
+              flex: "1 1 320px",
+              minWidth: 300,
+              background: "#fff",
+              border: "2px solid #2196f3",
+              borderRadius: 8,
+              padding: "32px 28px",
+              boxSizing: "border-box",
+              maxWidth: 370,
+            }}
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
             {/* Call To Us */}
             <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
               <PhoneIcon />
@@ -91,6 +126,8 @@ export default function Contact() {
             }}
             onSubmit={e => { e.preventDefault(); alert("Message sent!"); }}
             autoComplete="off"
+            data-aos="fade-left"
+            data-aos-delay="300"
           >
             {/* Top Row Inputs */}
             <div style={{
@@ -104,18 +141,24 @@ export default function Contact() {
                 placeholder="Your Name *"
                 required
                 style={inputStyle}
+                data-aos="fade-up"
+                data-aos-delay="400"
               />
               <input
                 type="email"
                 placeholder="Your Email *"
                 required
                 style={inputStyle}
+                data-aos="fade-up"
+                data-aos-delay="500"
               />
               <input
                 type="tel"
                 placeholder="Your Phone *"
                 required
                 style={inputStyle}
+                data-aos="fade-up"
+                data-aos-delay="600"
               />
             </div>
             {/* Message Box */}
@@ -131,6 +174,8 @@ export default function Contact() {
                 marginBottom: 24,
                 fontFamily: "inherit"
               }}
+              data-aos="fade-up"
+              data-aos-delay="700"
             />
             {/* Send Button */}
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -149,6 +194,8 @@ export default function Contact() {
                 }}
                 onMouseOver={e => (e.currentTarget.style.background = "#a92a2a")}
                 onMouseOut={e => (e.currentTarget.style.background = "#DB4444")}
+                data-aos="zoom-in"
+                data-aos-delay="800"
               >
                 Send Message
               </button>
@@ -160,18 +207,3 @@ export default function Contact() {
     </div>
   );
 }
-
-// Input style for form fields
-const inputStyle = {
-  background: "#f6f6f6",
-  border: "1.5px solid #eee",
-  borderRadius: 4,
-  padding: "14px 12px",
-  fontSize: 15,
-  width: "100%",
-  boxSizing: "border-box",
-  outline: "none",
-  marginBottom: 0,
-  fontFamily: "inherit",
-};
-

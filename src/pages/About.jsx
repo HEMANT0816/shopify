@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { FiArrowLeft, FiInstagram, FiTwitter, FiLinkedin } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import AnnouncementBar from "../components/AnnouncementBar";
 import Footer from "../components/Footer";
 import ServiceFeatures from "../components/ServiceFeatures";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Team data 
 const teamMembers = [
@@ -70,12 +72,18 @@ export default function About() {
 
   //  hover
   const [hoveredCard, setHoveredCard] = React.useState(null);
-    const cardColors = [
+  const cardColors = [
     { bg: "#fff", color: "#222", hoverBg: "#ececec", hoverColor: "#DB4444" }, // Sellers
     { bg: "#DB4444", color: "#fff", hoverBg: "#fff", hoverColor: "#DB4444" }, // 33k
     { bg: "#fff", color: "#222", hoverBg: "#ececec", hoverColor: "#DB4444" }, // Customers
     { bg: "#fff", color: "#222", hoverBg: "#ececec", hoverColor: "#DB4444" }, // Gross Sale
   ];
+
+  // AOS initialization
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true, easing: "ease-in-out" });
+    AOS.refresh();
+  }, []);
 
   return (
     <div style={{ fontFamily: "sans-serif", background: "#fff", minHeight: "100vh", position: "relative", overflowX: "hidden" }}>
@@ -93,9 +101,10 @@ export default function About() {
           gap: "60px",
           flexWrap: "wrap",
         }}
+        data-aos="fade-up"
       >
         {/* Left: Text Section */}
-        <div style={{ flex: 1, minWidth: 320 }}>
+        <div style={{ flex: 1, minWidth: 320 }} data-aos="fade-right" data-aos-delay="100">
           <div style={{ color: "#888", marginBottom: "12px" }}>
             Home / About
           </div>
@@ -110,7 +119,7 @@ export default function About() {
           </p>
         </div>
         {/* Right: Image Section */}
-        <div style={{ flex: 1, minWidth: 280, display: "flex", justifyContent: "center" }}>
+        <div style={{ flex: 1, minWidth: 280, display: "flex", justifyContent: "center" }} data-aos="fade-left" data-aos-delay="200">
           <img
             src="./images/about.svg"
             alt="Shoppers with bags"
@@ -127,8 +136,9 @@ export default function About() {
           gap: "20px",
           margin: "45px 0 36px 0",
           flexWrap: "wrap",
-        }} >
-         {/* Sellers */}
+        }}
+      >
+        {/* Sellers */}
         <div
           style={{
             ...cardStyle,
@@ -136,8 +146,11 @@ export default function About() {
             color: hoveredCard === 0 ? cardColors[0].hoverColor : cardColors[0].color,
           }}
           onMouseEnter={() => setHoveredCard(0)}
-          onMouseLeave={() => setHoveredCard(null)} >
-             <div style={iconCircleStyle}>
+          onMouseLeave={() => setHoveredCard(null)}
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div style={iconCircleStyle}>
             <img
               src="https://img.icons8.com/ios-filled/50/000000/shop.png"
               alt="Sellers"
@@ -147,7 +160,7 @@ export default function About() {
           <div style={cardNumberStyle}>10.5k</div>
           <div style={cardTextStyle}>Sellers active on our site</div>
         </div>
-            {/* 33k Card */}
+        {/* 33k Card */}
         <div
           style={{
             ...cardStyle,
@@ -156,8 +169,11 @@ export default function About() {
             border: "1.5px solid #DB4444",
           }}
           onMouseEnter={() => setHoveredCard(1)}
-          onMouseLeave={() => setHoveredCard(null)}>
-           <div style={iconCircleStyle}>
+          onMouseLeave={() => setHoveredCard(null)}
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div style={iconCircleStyle}>
             <img
               src="https://img.icons8.com/ios-filled/50/DB4444/us-dollar-circled--v2.png"
               alt="Product Sale"
@@ -169,7 +185,7 @@ export default function About() {
             Monthly Product Sale
           </div>
         </div>
-         {/* Customers */}
+        {/* Customers */}
         <div
           style={{
             ...cardStyle,
@@ -177,7 +193,10 @@ export default function About() {
             color: hoveredCard === 2 ? cardColors[2].hoverColor : cardColors[2].color,
           }}
           onMouseEnter={() => setHoveredCard(2)}
-          onMouseLeave={() => setHoveredCard(null)}>
+          onMouseLeave={() => setHoveredCard(null)}
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
           <div style={iconCircleStyle}>
             <img
               src="https://img.icons8.com/ios-filled/50/000000/shopping-bag.png"
@@ -188,7 +207,7 @@ export default function About() {
           <div style={cardNumberStyle}>45.5k</div>
           <div style={cardTextStyle}>Customers active on our site</div>
         </div>
-          {/* Gross Sale */}
+        {/* Gross Sale */}
         <div
           style={{
             ...cardStyle,
@@ -196,7 +215,10 @@ export default function About() {
             color: hoveredCard === 3 ? cardColors[3].hoverColor : cardColors[3].color,
           }}
           onMouseEnter={() => setHoveredCard(3)}
-          onMouseLeave={() => setHoveredCard(null)}>
+          onMouseLeave={() => setHoveredCard(null)}
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
           <div style={iconCircleStyle}>
             <img
               src="https://img.icons8.com/ios-filled/50/000000/money-bag.png"
@@ -209,7 +231,6 @@ export default function About() {
         </div>
       </div>
 
-
       {/* Team Section */}
       <div
         style={{
@@ -220,7 +241,7 @@ export default function About() {
           flexWrap: "wrap",
         }}
       >
-        {teamMembers.map((member) => (
+        {teamMembers.map((member, idx) => (
           <div
             key={member.name}
             style={{
@@ -231,6 +252,8 @@ export default function About() {
               width: 260,
               boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
             }}
+            data-aos="zoom-in"
+            data-aos-delay={200 + idx * 150}
           >
             <img
               src={member.img}
@@ -238,7 +261,7 @@ export default function About() {
               style={{
                 width: 230,
                 height: 230,
-                 margin: "0 auto 18px auto",
+                margin: "0 auto 18px auto",
                 borderRadius: "50%",
                 background: "#eaeaea",
                 overflow: "hidden",
@@ -286,28 +309,9 @@ export default function About() {
           left: 0,
           zIndex: 100,
         }}
+        data-aos="fade-up"
+        data-aos-delay="100"
       >
-        <button
-          onClick={() => navigate(-1)}
-          style={{
-            padding: "12px 32px",
-            background: "#f5f5f5",
-            border: "none",
-            borderRadius: "6px",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            fontWeight: 500,
-            fontSize: "1.08rem",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
-            transition: "background 0.2s",
-          }}
-          onMouseOver={e => (e.currentTarget.style.background = "#ececec")}
-          onMouseOut={e => (e.currentTarget.style.background = "#f5f5f5")}
-        >
-          <FiArrowLeft style={{ marginRight: 10 }} />
-          Go Back
-        </button>
       </div>
       <ServiceFeatures />
       <Footer />

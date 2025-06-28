@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FiHeart, FiSearch, FiUser, FiLogOut, FiChevronLeft } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
   const [accountOpen, setAccountOpen] = useState(false);
   const accountRef = useRef(null);
+  const location = useLocation();
 
   // Close dropdown if clicked outside
   useEffect(() => {
@@ -18,10 +19,19 @@ function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Helper for active link underline
+  const navLinkStyle = (path) => ({
+    color: "#1a1a1a",
+    textDecoration: "none",
+    position: "relative",
+    padding: "4px 0",
+    borderBottom: location.pathname === path ? "2px solid #1a1a1a" : "none"
+  });
+
   return (
     <div
       style={{
-        position: "sticky",        
+        position: "sticky",
         top: 0,
         zIndex: 1000,
         display: "flex",
@@ -30,26 +40,26 @@ function Navbar() {
         height: "70px",
         borderBottom: "1px solid #eee",
         background: "#fff",
-        width: "100%",              
-        boxSizing: "border-box",    
+        width: "100%",
+        boxSizing: "border-box",
       }}
     >
       {/* Logo */}
       <div style={{ fontSize: "26px", fontWeight: 700, marginRight: "150px" }}>Exclusive</div>
       {/* Navigation Links */}
       <nav style={{ display: "flex", gap: "40px", fontSize: "17px", fontWeight: 500 }}>
-        <a href="/" style={{ color: "#1a1a1a", textDecoration: "none", position: "relative", padding: "4px 0", borderBottom: "2px solid #1a1a1a" }}>
+        <Link to="/" style={navLinkStyle("/")}>
           Home
-        </a>
-        <a href="/contact" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
+        </Link>
+        <Link to="/contact" style={navLinkStyle("/contact")}>
           Contact
-        </a>
-        <a href="/about" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
+        </Link>
+        <Link to="/about" style={navLinkStyle("/about")}>
           About
-        </a>
-        <a href="/signup" style={{ color: "inherit", textDecoration: "none", position: "relative", padding: "4px 0" }}>
+        </Link>
+        <Link to="/signup" style={navLinkStyle("/signup")}>
           Sign Up
-        </a>
+        </Link>
       </nav>
       {/* Search Bar */}
       <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
@@ -65,11 +75,11 @@ function Navbar() {
       </div>
       {/* Icons and Account Dropdown */}
       <div style={{ display: "flex", alignItems: "center", gap: "22px", marginLeft: "30px" }}>
-         <Link to="/wishlist">
-        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Wishlist" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
+        <Link to="/wishlist">
+          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Wishlist" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
         </Link>
         <Link to="/cart">
-        <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Cart" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
+          <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Cart" style={{ width: "24px", height: "24px", cursor: "pointer" }} />
         </Link>
         {/* User Account Dropdown */}
         <div ref={accountRef} style={{ position: "relative" }}>

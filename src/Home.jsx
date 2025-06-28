@@ -90,9 +90,6 @@ const CartInfo=()=>{
   return (
     <div style={{ overflowX: "hidden" }}>
     <>
-      <button onClick={ChangeUserInfo}>change datat</button>
-      <button onClick={ResetUserInfo}>reset datat</button>
-      <button onClick={ResetUserInfo}>Cart</button>
 
       <AnnouncementBar />
       <Navbar />

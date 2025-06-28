@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CategoryCard({ cat }) {
+export default function CategoryCard({ cat, delay = 0 }) {
   return (
     <div
       style={{
@@ -21,6 +21,8 @@ export default function CategoryCard({ cat }) {
         transition: "all 0.2s",
         cursor: "pointer",
       }}
+      data-aos="zoom-in"
+      data-aos-delay={delay}
     >
       <div style={{ marginBottom: 12 }}>{cat.icon}</div>
       {cat.name}
