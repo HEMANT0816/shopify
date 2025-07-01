@@ -11,7 +11,7 @@ export default function AnnouncementBar() {
   return (
     <div
       style={{
-        width: "100vw",
+        width: "100%",
         margin: 0,
         background: "#000",
         color: "#fff",

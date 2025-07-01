@@ -16,7 +16,7 @@ import NotFound from './pages/NotFound'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignUp from "./Pages/Signup";
 import Home from './Home';
-
+import Wishlist from './src/components/Wishlist'
 
 const router = createBrowserRouter([
   {
@@ -38,7 +38,8 @@ const router = createBrowserRouter([
       { path: "/404", element: <NotFound /> },
       { path: "/contact", element: <Contact /> },
       { path: "/signup", element: <SignUp /> },
-      { path: "*", element: <NotFound /> }
+      { path: "*", element: <NotFound /> },
+      { path: "/wishlist", element: <Wishlist /> },
     ]
   }
 ])

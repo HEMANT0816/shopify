@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import CategoryCard from "./CategoryCard"; // Adjust import path as needed
+import CategoryCard from "./CategoryCard"; 
 import AOS from "aos";
 import "aos/dist/aos.css";
 

@@ -30,7 +30,6 @@ export default function NewArrivalSection() {
           gridTemplateColumns: "2fr 1fr 1fr",
           gridTemplateRows: "1fr 1fr",
           gap: "24px",
-          height: 600
         }}
       >
         {/* PlayStation 5 Large Card */}
