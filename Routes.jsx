@@ -16,7 +16,7 @@ import NotFound from './pages/NotFound'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignUp from "./Pages/Signup";
 import Home from './Home';
-import Wishlist from './src/components/Wishlist'
+import Wishlist from './src/pages/Wishlist'
 
 const router = createBrowserRouter([
   {
